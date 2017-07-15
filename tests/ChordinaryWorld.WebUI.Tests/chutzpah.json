@@ -1,0 +1,7 @@
+﻿{
+  "Framework": "jasmine",
+  "Compile": {
+    "Mode": "External",
+    "Extensions": [ ".ts" ]
+  }
+}

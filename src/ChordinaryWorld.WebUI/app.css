@@ -1,0 +1,22 @@
+﻿body {
+    background-color: orange;
+}
+
+h1 {
+    text-align: center;
+    font-size: 72px;
+    color: green;
+}
+
+label {
+    color: green;
+    font-size: x-large;
+}
+
+input {
+    text-align: center;
+}
+
+.invisible-span {
+    width: 0px;
+}
