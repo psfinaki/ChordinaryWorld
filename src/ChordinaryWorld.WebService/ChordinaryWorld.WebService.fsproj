@@ -122,7 +122,6 @@
     </Compile>
     <Content Include="packages.config" />
     <Compile Include="ChordsController.fs" />
-    <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

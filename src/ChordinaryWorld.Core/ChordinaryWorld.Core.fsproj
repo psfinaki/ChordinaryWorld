@@ -56,7 +56,6 @@
     <Compile Include="Downloader.fs" />
     <Compile Include="UrlGod.fs" />
     <Compile Include="Core.fs" />
-    <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

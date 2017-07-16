@@ -57,7 +57,6 @@
     <Compile Include="Deslasher.fs" />
     <Compile Include="Sieve.fs" />
     <Compile Include="Engine.fs" />
-    <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
