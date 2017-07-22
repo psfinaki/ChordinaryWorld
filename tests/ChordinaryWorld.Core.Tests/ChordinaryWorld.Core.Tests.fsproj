@@ -55,10 +55,11 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
-    <Compile Include="CoreTests.fs" />
     <Compile Include="DownloaderTests.fs" />
+    <Compile Include="FormatterTests.fs" />
     <Compile Include="HtmlParserTests.fs" />
-    <Compile Include="UrlGodTests.fs" />
+    <Compile Include="UrlMakerTests.fs" />
+    <Compile Include="CoreTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

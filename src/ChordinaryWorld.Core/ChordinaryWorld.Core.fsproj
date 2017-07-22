@@ -52,9 +52,10 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
-    <Compile Include="HtmlParser.fs" />
     <Compile Include="Downloader.fs" />
-    <Compile Include="UrlGod.fs" />
+    <Compile Include="Formatter.fs" />
+    <Compile Include="HtmlParser.fs" />
+    <Compile Include="UrlMaker.fs" />
     <Compile Include="Core.fs" />
   </ItemGroup>
   <ItemGroup>

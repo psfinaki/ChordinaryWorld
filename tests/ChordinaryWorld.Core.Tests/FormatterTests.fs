@@ -1,13 +1,23 @@
-﻿module UrlGodTests
+﻿module FormatterTests
 
 open Xunit
 
 [<Fact>]
-let MakesUrl() =
-    let song = ("The Doors", "Hello, I Love You")
-    let expected = "https://tabs.ultimate-guitar.com/t/the_doors/hello_i_love_you_crd.htm"
+let FormatsSong() =
+    let song = ("LP", "lost on you")
+    let expected = ("lp", "lost_on_you")
 
-    let actual = UrlGod.MakeUrl song
+    let actual = Formatter.FormatSong song
+
+    Assert.Equal(expected, actual)
+
+[<Theory>]
+[<InlineData("Proactive Evolution")>]
+[<InlineData("proactive evolution")>]
+let Preformats(input) =
+    let expected = "proactive evolution"
+
+    let actual = Formatter.Preformat input
 
     Assert.Equal(expected, actual)
 
@@ -18,7 +28,7 @@ let MakesUrl() =
 let HandlesPunctuationToSpace(input) =
     let expected = "pork soda"
 
-    let actual = UrlGod.HandlePunctuation input
+    let actual = Formatter.HandlePunctuation input
 
     Assert.Equal(expected, actual)
 
@@ -33,7 +43,7 @@ let HandlesPunctuationToSpace(input) =
 let HandlesPunctuationToEmpty(input) =
     let expected = "porksoda"
 
-    let actual = UrlGod.HandlePunctuation input
+    let actual = Formatter.HandlePunctuation input
 
     Assert.Equal(expected, actual)
 
@@ -43,15 +53,6 @@ let HandlesPunctuationToEmpty(input) =
 let HandlesSpaces(urlPart) =
     let expected = "god_is_an_astronaut"
 
-    let actual = UrlGod.HandleSpaces urlPart
-
-    Assert.Equal(expected, actual)
-
-[<Fact>]
-let ComposesUGUrl = 
-    let song = ("kasabian", "underdog")
-    let expected = "https://tabs.ultimate-guitar.com/k/kasabian/underdog_crd.htm"
-    
-    let actual = UrlGod.ComposeUGUrl song
+    let actual = Formatter.HandleSpaces urlPart
 
     Assert.Equal(expected, actual)

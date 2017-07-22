@@ -8,7 +8,8 @@ let GetNumberOfChords song =
     else
         let html = 
             song
-            |> UrlGod.MakeUrl
+            |> Formatter.FormatSong
+            |> UrlMaker.MakeUrl
             |> Downloader.DownloadHtml
 
         match html with
