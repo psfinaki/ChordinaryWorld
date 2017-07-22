@@ -14,6 +14,9 @@ let FormatsSong() =
 [<Theory>]
 [<InlineData("Proactive Evolution")>]
 [<InlineData("proactive evolution")>]
+[<InlineData("  proactive evolution")>]
+[<InlineData("proactive evolution ")>]
+[<InlineData(" proactive evolution  ")>]
 let Preformats(input) =
     let expected = "proactive evolution"
 

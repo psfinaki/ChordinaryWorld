@@ -5,7 +5,8 @@ open System.Text.RegularExpressions
 
 let Preformat(s: string) =
     s
-    |> fun s -> s.ToLower()
+     .Trim()
+     .ToLower()
 
 let HandlePunctuation (s: string) =
     s
