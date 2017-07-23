@@ -8,7 +8,7 @@ function search(): void {
     $.get(url)
         .done((result: number) => {
             const message = result != -1
-                ? `Number of chords here is ${result}.`
+                ? `Number of harmonies here is ${result}.`
                 : "Chords to this song cannot be retrieved.";
 
             $('#answer').removeClass('hidden');
@@ -24,10 +24,10 @@ function searchIfEnter(e: JQueryKeyEventObject): void {
 }
 
 $(() => {
-    $('#search').on('click', search);
+    $('#search').click(search);
 
     // this is why keyup:
     // https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box#comment13009121_155263
-    $('#artist').on('keyup', searchIfEnter);
-    $('#title').on('keyup', searchIfEnter);
+    $('#artist').keyup(searchIfEnter);
+    $('#title').keyup(searchIfEnter);
 });
