@@ -1,6 +1,6 @@
 ﻿module Core
 
-let GetNumberOfChords song =
+let GetNumberOfHarmonies song =
     if fst song = "kino"
     then
         3
@@ -16,7 +16,7 @@ let GetNumberOfChords song =
         | Some(x) -> 
             x 
             |> HtmlParser.GetChords
-            |> Engine.GetNumberOfChords
+            |> Engine.GetNumberOfHarmonies
             |> Some
         | None -> 
             None

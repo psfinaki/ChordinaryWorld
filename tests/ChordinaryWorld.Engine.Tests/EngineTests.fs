@@ -3,28 +3,28 @@
 open Xunit
 
 [<Fact>]
-let GetsNumberOfChords() =
+let GetsNumberOfHarmonies() =
     let chords = ["Am"; "Dm"; "Em"]
     let expected = 3
 
-    let actual = Engine.GetNumberOfChords chords
+    let actual = Engine.GetNumberOfHarmonies chords
 
     Assert.Equal(expected, actual)
 
 [<Fact>]
-let GetsNumberOfChordsWhenDuplicates() =
+let GetsNumberOfHarmoniesWhenDuplicates() =
     let chords = ["Am"; "Dm"; "Em"; "Dm"]
     let expected = 3
 
-    let actual = Engine.GetNumberOfChords chords
+    let actual = Engine.GetNumberOfHarmonies chords
 
     Assert.Equal(expected, actual)
 
 [<Fact>]
-let GetsNumberOfChordsWhenFlavours() =
+let GetsNumberOfHarmoniesWhenFlavours() =
     let chords = ["A"; "Amaj7"; "D"; "E"; "Bm"]
     let expected = 4
 
-    let actual = Engine.GetNumberOfChords chords
+    let actual = Engine.GetNumberOfHarmonies chords
 
     Assert.Equal(expected, actual)

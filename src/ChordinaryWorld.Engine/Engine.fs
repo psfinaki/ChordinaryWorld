@@ -1,6 +1,6 @@
 ﻿module Engine
 
-let GetNumberOfChords (chords: seq<string>) =
+let GetNumberOfHarmonies (chords: seq<string>) =
     chords 
     |> Seq.distinct
     |> Deslasher.Deslash

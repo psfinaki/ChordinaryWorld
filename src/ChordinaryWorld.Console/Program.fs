@@ -15,11 +15,11 @@ let main argv =
     while true do
         let result = 
             ReadData()
-            |> Core.GetNumberOfChords 
+            |> Core.GetNumberOfHarmonies 
 
         match result with
         | Some(x) -> 
-            printfn "Number of chords here is %A" x
+            printfn "Number of harmonies here is %A" x
         | None -> 
             printfn "Chords to this song cannot be retrieved"
 

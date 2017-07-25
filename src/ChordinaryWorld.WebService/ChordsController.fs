@@ -8,7 +8,7 @@ type ChordsController() =
     member x.Get(artist: string, title: string) =
         let result = 
             (artist, title)
-            |> Core.GetNumberOfChords
+            |> Core.GetNumberOfHarmonies
 
         match result with
         | Some(x) -> x

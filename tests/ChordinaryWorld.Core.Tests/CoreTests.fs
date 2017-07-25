@@ -3,11 +3,11 @@
 open Xunit
 
 [<Fact>]
-let GetsThreeChordsForKino() = 
+let GetsThreeHarmoniesForKino() = 
     let song = ("kino", "pachka sigaret")
     let expected = 3
 
-    let actual = Core.GetNumberOfChords song
+    let actual = Core.GetNumberOfHarmonies song
 
     Assert.Equal(expected, actual.Value)
 
@@ -29,10 +29,10 @@ let GetsThreeChordsForKino() =
 [<InlineData("Therapy?", "Diane", 4)>]
 [<InlineData("Radiohead", "Street Spirit (Fade Out)", 3)>]
 [<InlineData("Cage The Elephant", "Ain't No Rest For The Wicked", 4)>]
-let GetNumberOfChordsForNormalSongs(artist, title, numberOfChords) =
-    let expected = numberOfChords
+let GetsNumberOfHarmoniesForNormalSongs(artist, title, numberOfHarmonies) =
+    let expected = numberOfHarmonies
 
-    let actual = Core.GetNumberOfChords (artist, title)
+    let actual = Core.GetNumberOfHarmonies (artist, title)
 
     Assert.Equal(expected, actual.Value)
 
@@ -40,6 +40,6 @@ let GetNumberOfChordsForNormalSongs(artist, title, numberOfChords) =
 let HandlesNotFoundSong() =
     let song = ("Nothing But Thieves", "Ban All The Music")
 
-    let result = Core.GetNumberOfChords song
+    let result = Core.GetNumberOfHarmonies song
 
     Assert.True(result.IsNone)
