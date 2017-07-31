@@ -1,4 +1,4 @@
-﻿module ScraperTests
+﻿module DownloaderTests
 
 open Xunit
 open System.Net

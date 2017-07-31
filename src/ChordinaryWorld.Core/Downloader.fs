@@ -12,7 +12,8 @@ let NotFound (x: WebResponse) =
 let DownloadHtml (url: string) =
     use client = new WebClient()
     try
-        client.DownloadString url
+        url
+        |> client.DownloadString
         |> Some
     with
         | :? WebException as ex ->

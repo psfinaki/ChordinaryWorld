@@ -53,9 +53,10 @@
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
     <Compile Include="Downloader.fs" />
-    <Compile Include="Formatter.fs" />
     <Compile Include="HtmlParser.fs" />
     <Compile Include="UrlMaker.fs" />
+    <Compile Include="Crawler.fs" />
+    <Compile Include="Formatter.fs" />
     <Compile Include="Core.fs" />
   </ItemGroup>
   <ItemGroup>

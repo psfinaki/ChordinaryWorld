@@ -1,12 +1,36 @@
 ﻿module UrlMakerTests
 
 open Xunit
+open System
 
 [<Fact>]
-let ComposesUGUrl = 
-    let song = ("kasabian", "underdog")
+let MakesUrlForFirstVersion() = 
+    let artist = "kasabian"
+    let title = "underdog"
+    let version = 1
     let expected = "https://tabs.ultimate-guitar.com/k/kasabian/underdog_crd.htm"
     
-    let actual = UrlMaker.MakeUrl song
+    let actual = UrlMaker.MakeUrl (artist, title, version)
 
     Assert.Equal(expected, actual)
+
+[<Fact>]
+let MakesUrlForNotFirstVersion() = 
+    let artist = "kasabian"
+    let title = "underdog"
+    let version = 2
+    let expected = "https://tabs.ultimate-guitar.com/k/kasabian/underdog_ver2_crd.htm"
+    
+    let actual = UrlMaker.MakeUrl (artist, title, version)
+
+    Assert.Equal(expected, actual)
+
+[<Fact>]
+let ThrowsForInvalidVersion() = 
+    let artist = "kasabian"
+    let title = "underdog"
+    let version = 0
+    
+    let action = fun () -> UrlMaker.MakeUrl (artist, title, version) |> ignore
+
+    Assert.Throws<ArgumentException> action

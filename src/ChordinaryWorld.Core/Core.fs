@@ -3,16 +3,14 @@
 let GetNumberOfHarmonies song =
     if fst song = "kino"
     then
-        3
-        |> Some
+        Some 3
     else
-        let html = 
+        let tab = 
             song
             |> Formatter.FormatSong
-            |> UrlMaker.MakeUrl
-            |> Downloader.DownloadHtml
+            |> Crawler.GetTab
 
-        match html with
+        match tab with
         | Some(x) -> 
             x 
             |> HtmlParser.GetChords
