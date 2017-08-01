@@ -1,6 +1,9 @@
 ﻿/// <reference path="helper.ts" />
 
 function search(): void {
+    $('#answer').toggle(false);
+    $('#progress').toggle(true);
+
     const artist = $('#artist').val();
     const title = $('#title').val();
 
@@ -11,8 +14,10 @@ function search(): void {
                 ? `Number of harmonies here is ${result}.`
                 : "Chords to this song cannot be retrieved.";
 
-            $('#answer').removeClass('hidden');
             $('#answer').text(message);
+
+            $('#progress').toggle(false);
+            $('#answer').toggle(true);
         });
 }
 

@@ -23,12 +23,21 @@ input {
     text-align: center;
 }
 
+img {
+    display: block;
+    margin: auto;
+}
+
 .invisible-span {
     width: 0px;
 }
 
 .shifted {
     margin-left: 30px;
+}
+
+.shifted-left {
+    margin-left: -50px;
 }
 
 .footer {
