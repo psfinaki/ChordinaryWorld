@@ -30,4 +30,6 @@ $(() => {
     // https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box#comment13009121_155263
     $('#artist').keyup(searchIfEnter);
     $('#title').keyup(searchIfEnter);
+
+    $('#artist').focus();
 });
