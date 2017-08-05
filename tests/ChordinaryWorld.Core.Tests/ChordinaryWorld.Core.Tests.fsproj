@@ -61,6 +61,7 @@
     <Compile Include="DownloaderTests.fs" />
     <Compile Include="HtmlParserTests.fs" />
     <Compile Include="UrlMakerTests.fs" />
+    <Compile Include="ValidatorTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

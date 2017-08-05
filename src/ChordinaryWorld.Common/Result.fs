@@ -2,6 +2,7 @@
 
 type ErrorMessage =
     | ChordsNotFound
+    | EmptyInput
 
 type Result<'TEntity> =
     | Success of 'TEntity

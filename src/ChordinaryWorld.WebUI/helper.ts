@@ -9,3 +9,14 @@ function makeUrl(artist: string, title: string): string {
 
     return `http://${authority}/api/chords?${query}`;
 }
+
+function translateResult(result: number): string {
+    switch (result) {
+        case -1:
+            return "Chords to this song cannot be retrieved.";
+        case -2:
+            return "Empty input is not allowed.";
+        default:
+            return `Number of harmonies here is ${result}.`;
+    }
+}

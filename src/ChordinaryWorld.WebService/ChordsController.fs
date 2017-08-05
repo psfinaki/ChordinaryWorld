@@ -6,14 +6,15 @@ open Result
 type ChordsController() =
     inherit ApiController()
 
-    member x.Get(artist: string, title: string) =
+    member x.Get(artist, title) =
         let result = 
             (artist, title)
             |> Core.GetNumberOfHarmonies
 
         match result with
-        | Success(x) -> 
+        | Success x -> 
             x
-        | Failure(error) ->
+        | Failure error ->
             match error with
             | ChordsNotFound -> -1
+            | EmptyInput -> -2

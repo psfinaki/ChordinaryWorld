@@ -10,10 +10,7 @@ function search(): void {
     const url = makeUrl(artist, title);
     $.get(url)
         .done((result: number) => {
-            const message = result != -1
-                ? `Number of harmonies here is ${result}.`
-                : "Chords to this song cannot be retrieved.";
-
+            const message = translateResult(result);
             $('#result').text(message);
         })
         .fail(() => {

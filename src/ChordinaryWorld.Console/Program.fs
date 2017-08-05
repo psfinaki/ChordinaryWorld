@@ -19,12 +19,14 @@ let main argv =
             |> Core.GetNumberOfHarmonies 
 
         match result with
-        | Success(x) -> 
+        | Success x -> 
             printfn "Number of harmonies here is %A" x
-        | Failure(error) -> 
+        | Failure error -> 
             match error with
             | ChordsNotFound -> 
                 printfn "Chords to this song cannot be retrieved"
+            | EmptyInput ->
+                printfn "Empty input is not allowed"
 
         Console.WriteLine()
     0
