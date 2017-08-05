@@ -8,5 +8,5 @@ let DeslashChord (chord: string) =
 
 let Deslash (chords: seq<string>) =
     chords
-    |> Seq.map (fun c -> DeslashChord c)
+    |> Seq.map DeslashChord
     |> Seq.distinct

@@ -1,4 +1,4 @@
-﻿module Formatter
+﻿module Canonicalizer
 
 open System
 open System.Text.RegularExpressions
@@ -16,11 +16,11 @@ let HandlePunctuation (s: string) =
 let HandleSpaces (s: string) =
     Regex.Replace(s, "\s+", "_")
 
-let Format(s: string) =
+let Canonicalize(s: string) =
     s
     |> Preformat
     |> HandlePunctuation
     |> HandleSpaces
 
-let FormatSong (artist: string, title: string) =
-    (Format artist, Format title)
+let CanonicalizeSong (artist: string, title: string) =
+    (Canonicalize artist, Canonicalize title)

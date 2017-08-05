@@ -1,13 +1,13 @@
-﻿module FormatterTests
+﻿module CanonicalizerTests
 
 open Xunit
 
 [<Fact>]
-let FormatsSong() =
+let CanonicalizesSong() =
     let song = ("LP", "lost on you")
     let expected = ("lp", "lost_on_you")
 
-    let actual = Formatter.FormatSong song
+    let actual = Canonicalizer.CanonicalizeSong song
 
     Assert.Equal(expected, actual)
 
@@ -20,7 +20,7 @@ let FormatsSong() =
 let Preformats(input) =
     let expected = "proactive evolution"
 
-    let actual = Formatter.Preformat input
+    let actual = Canonicalizer.Preformat input
 
     Assert.Equal(expected, actual)
 
@@ -31,7 +31,7 @@ let Preformats(input) =
 let HandlesPunctuationToSpace(input) =
     let expected = "pork soda"
 
-    let actual = Formatter.HandlePunctuation input
+    let actual = Canonicalizer.HandlePunctuation input
 
     Assert.Equal(expected, actual)
 
@@ -46,7 +46,7 @@ let HandlesPunctuationToSpace(input) =
 let HandlesPunctuationToEmpty(input) =
     let expected = "porksoda"
 
-    let actual = Formatter.HandlePunctuation input
+    let actual = Canonicalizer.HandlePunctuation input
 
     Assert.Equal(expected, actual)
 
@@ -56,6 +56,6 @@ let HandlesPunctuationToEmpty(input) =
 let HandlesSpaces(urlPart) =
     let expected = "god_is_an_astronaut"
 
-    let actual = Formatter.HandleSpaces urlPart
+    let actual = Canonicalizer.HandleSpaces urlPart
 
     Assert.Equal(expected, actual)

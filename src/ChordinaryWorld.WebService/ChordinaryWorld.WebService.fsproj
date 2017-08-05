@@ -157,6 +157,11 @@
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Xml.Linq.dll" />
+    <ProjectReference Include="..\ChordinaryWorld.Common\ChordinaryWorld.Common.fsproj">
+      <Name>ChordinaryWorld.Common</Name>
+      <Project>{e85cd67b-8e2b-4ee7-9841-e32277f3a321}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\ChordinaryWorld.Core\ChordinaryWorld.Core.fsproj">
       <Name>ChordinaryWorld.Core</Name>
       <Project>{d1edbdb2-1627-4963-8117-a5e6b45066b7}</Project>

@@ -1,6 +1,7 @@
 ﻿module ChordsController
 
 open System.Web.Http
+open Result
 
 type ChordsController() =
     inherit ApiController()
@@ -11,5 +12,8 @@ type ChordsController() =
             |> Core.GetNumberOfHarmonies
 
         match result with
-        | Some(x) -> x
-        | None -> -1
+        | Success(x) -> 
+            x
+        | Failure(error) ->
+            match error with
+            | ChordsNotFound -> -1

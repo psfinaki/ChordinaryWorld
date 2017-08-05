@@ -1,15 +1,16 @@
 ﻿module CoreTests
 
 open Xunit
+open Result
 
 [<Fact>]
 let GetsThreeHarmoniesForKino() = 
     let song = ("kino", "pachka sigaret")
     let expected = 3
 
-    let actual = Core.GetNumberOfHarmonies song
+    let actual = song |> Core.GetNumberOfHarmonies |> function | Success(x) -> x
 
-    Assert.Equal(expected, actual.Value)
+    Assert.Equal(expected, actual)
 
 [<Theory>]
 [<InlineData("Glass Animals", "Life Itself", 6)>]
@@ -33,14 +34,16 @@ let GetsThreeHarmoniesForKino() =
 let GetsNumberOfHarmoniesForNormalSongs(artist, title, numberOfHarmonies) =
     let expected = numberOfHarmonies
 
-    let actual = Core.GetNumberOfHarmonies (artist, title)
+    let song = (artist, title)
+    let actual = song |> Core.GetNumberOfHarmonies |> function | Success(x) -> x
 
-    Assert.Equal(expected, actual.Value)
+    Assert.Equal(expected, actual)
 
 [<Fact>]
 let HandlesNotFoundSong() =
     let song = ("Nothing But Thieves", "Ban All The Music")
+    let expected = ChordsNotFound
+    
+    let actual = song |> Core.GetNumberOfHarmonies |> function | Failure(x) -> x
 
-    let result = Core.GetNumberOfHarmonies song
-
-    Assert.True(result.IsNone)
+    Assert.Equal(expected, actual)

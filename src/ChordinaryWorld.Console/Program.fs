@@ -1,4 +1,5 @@
 ﻿open System
+open Result
 
 let ReadData() =
     printfn "Enter the artist"
@@ -18,10 +19,12 @@ let main argv =
             |> Core.GetNumberOfHarmonies 
 
         match result with
-        | Some(x) -> 
+        | Success(x) -> 
             printfn "Number of harmonies here is %A" x
-        | None -> 
-            printfn "Chords to this song cannot be retrieved"
+        | Failure(error) -> 
+            match error with
+            | ChordsNotFound -> 
+                printfn "Chords to this song cannot be retrieved"
 
         Console.WriteLine()
     0

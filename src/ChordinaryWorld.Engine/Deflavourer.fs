@@ -45,6 +45,6 @@ let DeflavourChord (chord: string) =
 
 let Deflavour (chords: seq<string>) =
     chords
-    |> Seq.map (fun c -> DeflavourChord c)
+    |> Seq.map DeflavourChord
     |> Seq.choose id
     |> Seq.distinct

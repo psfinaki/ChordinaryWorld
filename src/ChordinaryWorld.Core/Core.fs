@@ -1,20 +1,15 @@
 ﻿module Core
 
+open Result
+open AbstractOperations
+
 let GetNumberOfHarmonies song =
     if fst song = "kino"
     then
-        Some 3
+        Success 3
     else
-        let tab = 
-            song
-            |> Formatter.FormatSong
-            |> Crawler.GetTab
-
-        match tab with
-        | Some(x) -> 
-            x 
-            |> HtmlParser.GetChords
-            |> Engine.GetNumberOfHarmonies
-            |> Some
-        | None -> 
-            None
+        song
+        |> Canonicalizer.CanonicalizeSong
+        |> Crawler.GetTab
+        |> map HtmlParser.GetChords
+        |> map Engine.GetNumberOfHarmonies

@@ -57,8 +57,8 @@
     <Content Include="packages.config" />
     <Compile Include="CoreTests.fs" />
     <Compile Include="CrawlerTests.fs" />
+    <Compile Include="CanonicalizerTests.fs" />
     <Compile Include="DownloaderTests.fs" />
-    <Compile Include="FormatterTests.fs" />
     <Compile Include="HtmlParserTests.fs" />
     <Compile Include="UrlMakerTests.fs" />
   </ItemGroup>
@@ -89,6 +89,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\ChordinaryWorld.Common\ChordinaryWorld.Common.fsproj">
+      <Name>ChordinaryWorld.Common</Name>
+      <Project>{e85cd67b-8e2b-4ee7-9841-e32277f3a321}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\ChordinaryWorld.Core\ChordinaryWorld.Core.fsproj">
       <Name>ChordinaryWorld.Core</Name>
       <Project>{d1edbdb2-1627-4963-8117-a5e6b45066b7}</Project>

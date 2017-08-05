@@ -1,5 +1,7 @@
 ﻿module Crawler
 
+open Result
+
 let GetTabs (artist, title) =
     let htmlGenerator (x) = 
         (artist, title, x)
@@ -22,12 +24,12 @@ let GetTab (artist: string, title: string) =
     let tabs = GetTabs(artist, title)
     match Seq.length tabs with
     | 0 -> 
-        None
+        Failure ChordsNotFound
     | 1 -> 
         tabs 
         |> Seq.exactlyOne
-        |> Some
+        |> Success
     | _ ->
         tabs
         |> ChooseBestTab
-        |> Some
+        |> Success
