@@ -16,11 +16,10 @@ let HandlePunctuation (s: string) =
 let HandleSpaces (s: string) =
     Regex.Replace(s, "\s+", "_")
 
-let Canonicalize(s: string) =
-    s
-    |> Preformat
-    |> HandlePunctuation
-    |> HandleSpaces
+let Canonicalize =
+    Preformat
+    >> HandlePunctuation
+    >> HandleSpaces
 
-let CanonicalizeSong (artist: string, title: string) =
+let CanonicalizeSong (artist, title) =
     (Canonicalize artist, Canonicalize title)
