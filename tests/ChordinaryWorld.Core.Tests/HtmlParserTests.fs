@@ -14,7 +14,7 @@ let GetsChordsFromTab(tabContent) =
 
 [<Fact>]
 let GetsTabContentFromHtml() =
-    let html = "<html><b></b><pre class=\"js-tab-content js-copy-content\">tab content</pre></html>"
+    let html = "<html><b></b><pre class=\"js-tab-content js-copy-content js-tab-controls-item\" style=\"position: relative\">tab content</pre></html>"
     let expected = "tab content"
 
     let actual = HtmlParser.GetTabContentFromHtml html
@@ -23,7 +23,7 @@ let GetsTabContentFromHtml() =
 
 [<Fact>]
 let GetsTabContentWithNewlinesFromHtml() =
-    let html = "<html><b></b><pre class=\"js-tab-content js-copy-content\">tab\ncontent</pre></html>"
+    let html = "<html><b></b><pre class=\"js-tab-content js-copy-content js-tab-controls-item\" style=\"position: relative\">tab\ncontent</pre></html>"
     let expected = "tab\ncontent"
 
     let actual = HtmlParser.GetTabContentFromHtml html
@@ -32,7 +32,7 @@ let GetsTabContentWithNewlinesFromHtml() =
 
 [<Fact>]
 let GetsChords() =
-    let html = "<html><b></b><pre class=\"js-tab-content js-copy-content\"><span>Am</span><span>Dm</span><span>Am</span></pre></html>"
+    let html = "<html><b></b><pre class=\"js-tab-content js-copy-content js-tab-controls-item\" style=\"position: relative\"><span>Am</span><span>Dm</span><span>Am</span></pre></html>"
     let expected = [ "Am"; "Dm"; "Am" ]
 
     let actual = HtmlParser.GetChords html

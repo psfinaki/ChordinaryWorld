@@ -6,7 +6,7 @@ open System.Globalization
 
 let GetTabContentFromHtml html =
     Regex
-        .Match(html, ".*js-tab-content js-copy-content\">(.*)</pre>.*", RegexOptions.Singleline)
+        .Match(html, ".*js-tab-content js-copy-content js-tab-controls-item\" style=\"position: relative\">(.*)</pre>.*", RegexOptions.Singleline)
         .Groups.[1]
         .Value
 
