@@ -16,7 +16,7 @@ let GetTabs (artist, title) =
 
 let ChooseBestTab tabs =
     tabs
-    |> Seq.map (fun tab -> (tab, HtmlParser.GetRatingFromHtml(tab)))
+    |> Seq.map (fun tab -> (tab, HtmlParser.GetRating(tab)))
     |> Seq.maxBy snd
     |> fst
 

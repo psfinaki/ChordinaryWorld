@@ -4,13 +4,14 @@ open System.Text.RegularExpressions
 open System
 open System.Globalization
 
-let GetTabContentFromHtml html =
-    Regex
-        .Match(html, ".*js-tab-content js-copy-content js-tab-controls-item\" style=\"position: relative\">(.*)</pre>.*", RegexOptions.Singleline)
-        .Groups.[1]
-        .Value
+let IsChord s =
+    let note = "[ABCDEFGH]{1}?[#b]?"
+    let flavour = "[a-xA-X0-9#]{0,10}"
+    let variation = "(/" + note + ")?"
+    let pattern = "^(" + note + flavour + variation + ")$"
+    Regex.IsMatch(s, pattern)
 
-let GetRatingFromHtml html =
+let GetRating html =
     let m = Regex.Match(html, "<span itemprop=\"ratingCount\">(.*?)</span>")
     
     match m.Success with
@@ -20,12 +21,10 @@ let GetRatingFromHtml html =
     | false -> 
         0
 
-let GetChordsFromTab tabContent =
-    Regex.Matches(tabContent, "<span>(\S+?)</span>")
+let GetChords html = 
+    let m = Regex.Matches(html, "<span>(\S+?)</span>")
+
+    m
     |> Seq.cast<Match>
     |> Seq.map (fun m -> m.Groups.[1].Value)
-
-let GetChords html = 
-    html
-    |> GetTabContentFromHtml 
-    |> GetChordsFromTab
+    |> Seq.filter IsChord
