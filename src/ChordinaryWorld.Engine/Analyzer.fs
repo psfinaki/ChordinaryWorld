@@ -7,6 +7,6 @@ let AnalyzeChord (chord: string) =
     let groups = Regex.Match(chord, regex).Groups
 
     let tonic = groups.[1].Value
-    let pureChord = groups.[2].Value
+    let flavour = groups.[2].Value
 
-    (tonic, pureChord)
+    (tonic, flavour)

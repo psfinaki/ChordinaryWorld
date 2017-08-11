@@ -18,3 +18,4 @@ type ChordsController() =
             match error with
             | ChordsNotFound -> -1
             | EmptyInput -> -2
+            | UnknownFlavour -> -3

@@ -24,9 +24,11 @@ let main argv =
         | Failure error -> 
             match error with
             | ChordsNotFound -> 
-                printfn "Chords to this song cannot be retrieved"
+                printfn "Chords are not found"
             | EmptyInput ->
                 printfn "Empty input is not allowed"
+            | UnknownFlavour ->
+                printfn "Unknown chord in the tab"
 
         Console.WriteLine()
     0

@@ -1,10 +1,12 @@
 ﻿module Engine
 
-let GetNumberOfHarmonies (chords: seq<string>) =
+open AbstractOperations
+
+let GetNumberOfHarmonies chords =
     chords 
     |> Seq.distinct
     |> Deslasher.Deslash
     |> Sieve.RemoveSuspends
     |> Sieve.RemovePowers
     |> Deflavourer.Deflavour
-    |> Seq.length
+    |> map Seq.length

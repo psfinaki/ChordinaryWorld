@@ -13,4 +13,4 @@ let GetNumberOfHarmonies song =
         |> map Canonicalizer.CanonicalizeSong
         |> bind Crawler.GetTab
         |> map HtmlParser.GetChords
-        |> map Engine.GetNumberOfHarmonies
+        |> bind Engine.GetNumberOfHarmonies

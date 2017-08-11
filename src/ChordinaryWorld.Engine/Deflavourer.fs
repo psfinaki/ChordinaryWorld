@@ -1,6 +1,7 @@
 ﻿module Deflavourer
 
 open System.Collections.Generic
+open Result
 
 let flavours = dict[ 
                      "", ""; 
@@ -34,17 +35,17 @@ let flavours = dict[
                      "m7b5", "dim";
                                     ]
 
-let DeflavourChord (chord: string) =
-    try
-        chord
-        |> Analyzer.AnalyzeChord 
-        |> fun (tonic, pureChord) -> tonic + flavours.Item(pureChord)
-        |> Some
-    with
-        | :? KeyNotFoundException -> None
+let DeflavourChord chord =
+    chord
+    |> Analyzer.AnalyzeChord 
+    |> fun (tonic, flavour) -> tonic + flavours.Item(flavour)
 
-let Deflavour (chords: seq<string>) =
-    chords
-    |> Seq.map DeflavourChord
-    |> Seq.choose id
-    |> Seq.distinct
+let Deflavour chords =
+    try
+        chords
+        |> Seq.map DeflavourChord
+        |> Seq.toList // force evaluation
+        |> Seq.distinct
+        |> Success
+    with
+        | :? KeyNotFoundException -> Failure UnknownFlavour

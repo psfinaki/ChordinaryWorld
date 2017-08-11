@@ -1,6 +1,8 @@
 ﻿module DeflavourerTests
 
 open Xunit
+open System.Collections.Generic
+open Result
 
 [<Theory>]
 [<InlineData("A", "A")>]
@@ -18,30 +20,30 @@ let DeflavoursChord(chord, deflavoured) =
 
     let actual = Deflavourer.DeflavourChord chord
 
-    Assert.Equal(expected, actual.Value)
+    Assert.Equal(expected, actual)
 
 [<Fact>]
-let HandlesUnknownChord() =
+let ThrowsForUnknownFlavour() =
     let chord = "F#UNKNOWN"
     
-    let result = Deflavourer.DeflavourChord chord
+    let action = fun () -> Deflavourer.DeflavourChord chord |> ignore
 
-    Assert.True(result.IsNone)
+    Assert.Throws<KeyNotFoundException> action
 
 [<Fact>]
 let Deflavours() =
     let chords = ["E"; "E7"; "Dm"; "Dadd9"]
     let expected = ["E"; "Dm"; "D"]
 
-    let actual = Deflavourer.Deflavour chords
+    let actual = chords |> Deflavourer.Deflavour |> function | Success(x) -> x
 
     Assert.Equal(expected, actual)
 
 [<Fact>]
-let SkipsUnknownChords() =
+let HandlesUnknownFlavours() =
     let chords = ["E"; "F#Weird"; "Dm"; "BbmWrong"]
-    let expected = ["E"; "Dm"]
+    let expected = UnknownFlavour
 
-    let actual = Deflavourer.Deflavour chords
+    let actual = chords |> Deflavourer.Deflavour |> function | Failure(x) -> x
 
     Assert.Equal(expected, actual)

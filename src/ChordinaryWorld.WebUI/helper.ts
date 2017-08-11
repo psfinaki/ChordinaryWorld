@@ -16,6 +16,8 @@ function translateResult(result: number): string {
             return "Chords to this song cannot be retrieved.";
         case -2:
             return "Empty input is not allowed.";
+        case -3:
+            return "There is a problem with the chords found. Please write developers about this song."
         default:
             return `Number of harmonies here is ${result}.`;
     }
