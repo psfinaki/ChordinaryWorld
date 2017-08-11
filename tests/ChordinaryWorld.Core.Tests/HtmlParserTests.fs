@@ -46,7 +46,6 @@ let HandlesAbsentRating() =
 [<InlineData("E")>]
 [<InlineData("F")>]
 [<InlineData("G")>]
-[<InlineData("H")>]
 [<InlineData("Amaj")>]
 [<InlineData("A6")>]
 [<InlineData("A7")>]

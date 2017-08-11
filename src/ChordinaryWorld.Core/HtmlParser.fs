@@ -5,8 +5,8 @@ open System
 open System.Globalization
 
 let IsChord s =
-    let note = "[ABCDEFGH]{1}?[#b]?"
-    let flavour = "[a-xA-X0-9#]{0,10}"
+    let note = "[ABCDEFG]{1}?[#b]?"
+    let flavour = "[a-zA-Z0-9#]{0,10}"
     let variation = "(/" + note + ")?"
     let pattern = "^(" + note + flavour + variation + ")$"
     Regex.IsMatch(s, pattern)
