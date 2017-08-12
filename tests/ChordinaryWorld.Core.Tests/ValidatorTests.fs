@@ -20,7 +20,7 @@ let ValidatesSongBadInput (artist, title) =
     let song = (artist, title)
     let expected = EmptyInput
 
-    let actual = song |> Validator.ValidateSong |> function | Failure(x) -> x
+    let actual = song |> Validator.ValidateSong |> function | Failure x -> x
 
     Assert.Equal(expected, actual)
 
@@ -41,6 +41,6 @@ let ValidatesNormalInput() =
 let ValidatesBadInput(input) =
     let expected = EmptyInput
 
-    let actual = input |> Validator.Validate |> function | Failure(x) -> x
+    let actual = input |> Validator.Validate |> function | Failure x -> x
 
     Assert.Equal(expected, actual)

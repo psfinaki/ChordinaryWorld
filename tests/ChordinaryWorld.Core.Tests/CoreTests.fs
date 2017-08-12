@@ -8,7 +8,7 @@ let GetsThreeHarmoniesForKino() =
     let song = ("kino", "pachka sigaret")
     let expected = 3
 
-    let actual = song |> Core.GetNumberOfHarmonies |> function | Success(x) -> x
+    let actual = song |> Core.GetNumberOfHarmonies |> function | Success x -> x
 
     Assert.Equal(expected, actual)
 
@@ -35,7 +35,7 @@ let GetsNumberOfHarmoniesForNormalSongs(artist, title, numberOfHarmonies) =
     let expected = numberOfHarmonies
 
     let song = (artist, title)
-    let actual = song |> Core.GetNumberOfHarmonies |> function | Success(x) -> x
+    let actual = song |> Core.GetNumberOfHarmonies |> function | Success x -> x
 
     Assert.Equal(expected, actual)
 
@@ -44,6 +44,6 @@ let HandlesNotFoundSong() =
     let song = ("Nothing But Thieves", "Ban All The Music")
     let expected = ChordsNotFound
     
-    let actual = song |> Core.GetNumberOfHarmonies |> function | Failure(x) -> x
+    let actual = song |> Core.GetNumberOfHarmonies |> function | Failure x -> x
 
     Assert.Equal(expected, actual)
