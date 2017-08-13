@@ -15,7 +15,7 @@ let Deslashes() =
 [<InlineData("D/E", "D")>]
 [<InlineData("A", "A")>]
 [<InlineData("C7", "C7")>]
-let DeslashesChord(chord, deslashed) =
+let DeslashesChord chord deslashed =
     let expected = deslashed
     
     let actual = Deslasher.DeslashChord chord

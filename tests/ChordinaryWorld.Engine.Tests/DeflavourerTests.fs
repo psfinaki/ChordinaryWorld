@@ -15,7 +15,7 @@ open Result
 [<InlineData("Fm9", "Fm")>]
 [<InlineData("Gaug", "Gaug")>]
 [<InlineData("G#dim", "G#dim")>]
-let DeflavoursChord(chord, deflavoured) =
+let DeflavoursChord chord deflavoured =
     let expected = deflavoured
 
     let actual = Deflavourer.DeflavourChord chord

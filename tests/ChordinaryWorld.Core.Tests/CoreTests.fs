@@ -31,7 +31,7 @@ let GetsThreeHarmoniesForKino() =
 [<InlineData("Radiohead", "Street Spirit (Fade Out)", 3)>]
 [<InlineData("Cage The Elephant", "Ain't No Rest For The Wicked", 4)>]
 [<InlineData("Keane", "Somewhere Only We Know", 6)>]
-let GetsNumberOfHarmoniesForNormalSongs(artist, title, numberOfHarmonies) =
+let GetsNumberOfHarmoniesForNormalSongs artist title numberOfHarmonies =
     let expected = numberOfHarmonies
 
     let song = (artist, title)

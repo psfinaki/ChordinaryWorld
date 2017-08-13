@@ -16,7 +16,7 @@ let ValidatesSongNormalInput() =
 [<InlineData(null, "where is my mind?")>]
 [<InlineData("pixies", "")>]
 [<InlineData(" ", "   ")>]
-let ValidatesSongBadInput (artist, title) =
+let ValidatesSongBadInput artist title =
     let song = (artist, title)
     let expected = EmptyInput
 
@@ -38,7 +38,7 @@ let ValidatesNormalInput() =
 [<InlineData("")>]
 [<InlineData(" ")>]
 [<InlineData("     ")>]
-let ValidatesBadInput(input) =
+let ValidatesBadInput input =
     let expected = EmptyInput
 
     let actual = input |> Validator.Validate |> function | Failure x -> x

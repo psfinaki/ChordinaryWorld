@@ -2,7 +2,7 @@
 
 open System.Text.RegularExpressions
 
-let AnalyzeChord (chord: string) =
+let AnalyzeChord chord =
     let regex = "([ABCDEFG]{1}[#b]?)(.*)"
     let groups = Regex.Match(chord, regex).Groups
 

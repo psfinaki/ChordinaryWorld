@@ -18,5 +18,5 @@ let DownloadHtml (url: string) =
     with
         | :? WebException as ex ->
                  match ex.Response with
-                 | r when NotFound(r) -> None
+                 | r when NotFound r -> None
                  | _ -> reraise()

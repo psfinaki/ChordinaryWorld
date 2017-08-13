@@ -76,7 +76,7 @@ let HandlesAbsentRating() =
 [<InlineData("Fsus4")>]
 [<InlineData("Fsus2sus4")>]
 [<InlineData("D/G")>]
-let RecognizesChord(s) =
+let RecognizesChord s =
     let result = HtmlParser.IsChord s
 
     Assert.True(result)
@@ -90,7 +90,7 @@ let RecognizesChord(s) =
 [<InlineData("D/R")>]
 [<InlineData("D/7")>]
 [<InlineData("42")>]
-let RecognizesNotChord(s) =
+let RecognizesNotChord s =
     let result = HtmlParser.IsChord s
 
     Assert.False(result)

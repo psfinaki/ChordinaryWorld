@@ -17,7 +17,7 @@ let CanonicalizesSong() =
 [<InlineData("  proactive evolution")>]
 [<InlineData("proactive evolution ")>]
 [<InlineData(" proactive evolution  ")>]
-let Preformats(input) =
+let Preformats input =
     let expected = "proactive evolution"
 
     let actual = Canonicalizer.Preformat input
@@ -28,7 +28,7 @@ let Preformats(input) =
 [<InlineData("pork,soda")>]
 [<InlineData("pork/soda")>]
 [<InlineData("pork.soda")>]
-let HandlesPunctuationToSpace(input) =
+let HandlesPunctuationToSpace input =
     let expected = "pork soda"
 
     let actual = Canonicalizer.HandlePunctuation input
@@ -43,7 +43,7 @@ let HandlesPunctuationToSpace(input) =
 [<InlineData("pork)soda")>]
 [<InlineData("pork()soda")>]
 [<InlineData("pork'soda")>]
-let HandlesPunctuationToEmpty(input) =
+let HandlesPunctuationToEmpty input =
     let expected = "porksoda"
 
     let actual = Canonicalizer.HandlePunctuation input
@@ -53,7 +53,7 @@ let HandlesPunctuationToEmpty(input) =
 [<Theory>]
 [<InlineData("god is an astronaut")>]
 [<InlineData("god  is  an astronaut")>]
-let HandlesSpaces(urlPart) =
+let HandlesSpaces urlPart =
     let expected = "god_is_an_astronaut"
 
     let actual = Canonicalizer.HandleSpaces urlPart

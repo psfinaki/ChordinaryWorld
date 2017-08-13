@@ -38,7 +38,7 @@ let flavours = dict[
 let DeflavourChord chord =
     chord
     |> Analyzer.AnalyzeChord 
-    |> fun (tonic, flavour) -> tonic + flavours.Item(flavour)
+    |> fun (tonic, flavour) -> tonic + flavours.Item flavour
 
 let Deflavour chords =
     try

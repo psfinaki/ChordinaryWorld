@@ -6,7 +6,7 @@ let DeslashChord (chord: string) =
                 | -1 -> chord
                 | _  -> chord.[0..(i-1)]
 
-let Deslash (chords: seq<string>) =
+let Deslash chords =
     chords
     |> Seq.map DeslashChord
     |> Seq.distinct

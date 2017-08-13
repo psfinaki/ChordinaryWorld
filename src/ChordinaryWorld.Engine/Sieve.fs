@@ -4,6 +4,6 @@ let RemoveSuspends (chords: seq<string>) =
     chords
     |> Seq.filter (fun c -> not (c.Contains("sus")))
 
-let RemovePowers (chords: seq<string>) =
+let RemovePowers chords =
     chords 
-    |> Seq.filter (fun c -> snd (Analyzer.AnalyzeChord(c)) <> "5")
+    |> Seq.filter (fun c -> snd (Analyzer.AnalyzeChord c) <> "5")
