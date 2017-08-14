@@ -1,13 +1,14 @@
 ﻿module HtmlParserTests
 
 open Xunit
+open HtmlParser
 
 [<Fact>]
 let GetsChords() =
     let html = "<html><b></b><pre class=\"js-tab-content js-copy-content js-tab-controls-item\" style=\"position: relative\"><span>Am</span><span>Dm</span><span>Am</span></pre></html>"
     let expected = [ "Am"; "Dm"; "Am" ]
 
-    let actual = HtmlParser.GetChords html
+    let actual = GetChords html
 
     Assert.Equal(expected, actual)
 
@@ -16,7 +17,7 @@ let GetsSmallRating() =
     let html = "<span><span itemprop=\"ratingCount\">42</span></span>"
     let expected = 42
 
-    let actual = HtmlParser.GetRating html
+    let actual = GetRating html
 
     Assert.Equal(expected, actual)
 
@@ -25,7 +26,7 @@ let GetsBigRating() =
     let html = "<span><span itemprop=\"ratingCount\">1,024</span></span>"
     let expected = 1024
 
-    let actual = HtmlParser.GetRating html
+    let actual = GetRating html
 
     Assert.Equal(expected, actual)
 
@@ -34,7 +35,7 @@ let HandlesAbsentRating() =
     let html = "<div></div>"
     let expected = 0
 
-    let actual = HtmlParser.GetRating html
+    let actual = GetRating html
 
     Assert.Equal(expected, actual)
 
@@ -77,7 +78,7 @@ let HandlesAbsentRating() =
 [<InlineData("Fsus2sus4")>]
 [<InlineData("D/G")>]
 let RecognizesChord s =
-    let result = HtmlParser.IsChord s
+    let result = IsChord s
 
     Assert.True(result)
     
@@ -91,6 +92,6 @@ let RecognizesChord s =
 [<InlineData("D/7")>]
 [<InlineData("42")>]
 let RecognizesNotChord s =
-    let result = HtmlParser.IsChord s
+    let result = IsChord s
 
     Assert.False(result)

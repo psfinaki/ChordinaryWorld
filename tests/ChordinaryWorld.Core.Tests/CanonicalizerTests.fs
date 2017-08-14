@@ -1,13 +1,14 @@
 ﻿module CanonicalizerTests
 
 open Xunit
+open Canonicalizer
 
 [<Fact>]
 let CanonicalizesSong() =
     let song = ("LP", "lost on you")
     let expected = ("lp", "lost_on_you")
 
-    let actual = Canonicalizer.CanonicalizeSong song
+    let actual = CanonicalizeSong song
 
     Assert.Equal(expected, actual)
 
@@ -20,7 +21,7 @@ let CanonicalizesSong() =
 let Preformats input =
     let expected = "proactive evolution"
 
-    let actual = Canonicalizer.Preformat input
+    let actual = Preformat input
 
     Assert.Equal(expected, actual)
 
@@ -31,7 +32,7 @@ let Preformats input =
 let HandlesPunctuationToSpace input =
     let expected = "pork soda"
 
-    let actual = Canonicalizer.HandlePunctuation input
+    let actual = HandlePunctuation input
 
     Assert.Equal(expected, actual)
 
@@ -46,7 +47,7 @@ let HandlesPunctuationToSpace input =
 let HandlesPunctuationToEmpty input =
     let expected = "porksoda"
 
-    let actual = Canonicalizer.HandlePunctuation input
+    let actual = HandlePunctuation input
 
     Assert.Equal(expected, actual)
 
@@ -56,6 +57,6 @@ let HandlesPunctuationToEmpty input =
 let HandlesSpaces urlPart =
     let expected = "god_is_an_astronaut"
 
-    let actual = Canonicalizer.HandleSpaces urlPart
+    let actual = HandleSpaces urlPart
 
     Assert.Equal(expected, actual)

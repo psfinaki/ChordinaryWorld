@@ -1,4 +1,4 @@
-﻿module Deslasher
+﻿module internal Deslasher
 
 let DeslashChord (chord: string) =
     chord.IndexOf('/')

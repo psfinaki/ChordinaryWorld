@@ -1,8 +1,5 @@
 ﻿module Core
 
-open Result
-open AbstractOperations
-
 let GetNumberOfHarmonies song =
     if fst song = "kino"
     then

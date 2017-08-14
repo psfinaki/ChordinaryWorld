@@ -1,7 +1,5 @@
 ﻿module Engine
 
-open AbstractOperations
-
 let GetNumberOfHarmonies chords =
     chords 
     |> Seq.distinct

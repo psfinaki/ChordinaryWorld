@@ -1,7 +1,6 @@
-﻿module Validator
+﻿module internal Validator
 
 open System
-open Result
 
 let Validate input =
     if String.IsNullOrWhiteSpace input

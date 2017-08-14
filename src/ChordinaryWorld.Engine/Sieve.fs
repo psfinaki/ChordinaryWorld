@@ -1,4 +1,4 @@
-﻿module Sieve
+﻿module internal Sieve
 
 let RemoveSuspends (chords: seq<string>) =
     chords

@@ -1,5 +1,4 @@
 ﻿open System
-open Result
 
 let ReadData() =
     printfn "Enter the artist"

@@ -1,4 +1,4 @@
-﻿module HtmlParser
+﻿module internal HtmlParser
 
 open System.Text.RegularExpressions
 open System

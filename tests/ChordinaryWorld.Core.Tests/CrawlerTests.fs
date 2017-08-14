@@ -1,6 +1,7 @@
 ﻿module CrawlerTests
 
 open Xunit
+open Crawler
 
 [<Theory>]
 [<InlineData("tycho", "awake", 0)>]
@@ -9,6 +10,6 @@ open Xunit
 let GetsTabs artist title numberOfTabs = 
     let expected = numberOfTabs
     
-    let actual = (artist, title) |> Crawler.GetTabs |> Seq.length 
+    let actual = (artist, title) |> GetTabs |> Seq.length 
 
     Assert.Equal(expected, actual)

@@ -1,14 +1,15 @@
 ﻿module DownloaderTests
 
-open Xunit
 open System.Net
+open Xunit
+open Downloader
 
 [<Fact>]
 let GetsHtmlFromUrl() =
     let url = "https://tabs.ultimate-guitar.com/l/london_grammar/shyer_crd.htm"
     let html = "<html>"
 
-    let result = Downloader.DownloadHtml url
+    let result = DownloadHtml url
     let resultContaintsHtml = result.Value.Contains html
 
     Assert.True(resultContaintsHtml)
@@ -17,7 +18,7 @@ let GetsHtmlFromUrl() =
 let ThrowsForBadUrl() =
     let url = "bad url"
 
-    let action = fun () -> Downloader.DownloadHtml url |> ignore
+    let action = fun () -> DownloadHtml url |> ignore
 
     Assert.Throws<WebException> action
 
@@ -25,6 +26,6 @@ let ThrowsForBadUrl() =
 let HandlesNotFoundUrl() =
     let url = "https://tabs.ultimate-guitar.com/l/nothing_but_thieves/ban_all_the_music_crd.htm"
 
-    let result = Downloader.DownloadHtml url
+    let result = DownloadHtml url
 
     Assert.True(result.IsNone)

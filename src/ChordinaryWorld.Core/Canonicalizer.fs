@@ -1,4 +1,4 @@
-﻿module Canonicalizer
+﻿module internal Canonicalizer
 
 open System
 open System.Text.RegularExpressions

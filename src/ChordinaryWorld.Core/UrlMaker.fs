@@ -1,4 +1,4 @@
-﻿module UrlMaker
+﻿module internal UrlMaker
 
 open System
 

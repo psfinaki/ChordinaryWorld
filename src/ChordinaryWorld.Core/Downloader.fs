@@ -1,4 +1,4 @@
-﻿module Downloader
+﻿module internal Downloader
 
 open System.Net
 

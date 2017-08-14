@@ -1,6 +1,4 @@
-﻿module Crawler
-
-open Result
+﻿module internal Crawler
 
 let GetTabs (artist, title) =
     let htmlGenerator x = 

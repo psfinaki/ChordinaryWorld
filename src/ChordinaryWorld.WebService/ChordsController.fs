@@ -1,7 +1,6 @@
 ﻿module ChordsController
 
 open System.Web.Http
-open Result
 
 type ChordsController() =
     inherit ApiController()

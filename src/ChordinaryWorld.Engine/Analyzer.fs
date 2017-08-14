@@ -1,4 +1,4 @@
-﻿module Analyzer
+﻿module internal Analyzer
 
 open System.Text.RegularExpressions
 

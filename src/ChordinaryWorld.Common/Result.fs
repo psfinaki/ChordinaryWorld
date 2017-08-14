@@ -1,4 +1,5 @@
-﻿module Result
+﻿[<AutoOpen>]
+module Result
 
 type ErrorMessage =
     | ChordsNotFound
