@@ -1,8 +1,8 @@
 ﻿module internal Sieve
 
-let RemoveSuspends (chords: seq<string>) =
+let RemoveSuspends chords =
     chords
-    |> Seq.filter (fun c -> not (c.Contains("sus")))
+    |> Seq.filter (fun (c: string) -> not (c.Contains("sus")))
 
 let RemovePowers chords =
     chords 

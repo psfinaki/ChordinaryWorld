@@ -1,5 +1,6 @@
 ﻿module DeslasherTests
 
+open System
 open Xunit
 open Deslasher
 
@@ -23,3 +24,10 @@ let DeslashesChord chord deslashed =
 
     Assert.Equal(expected, actual)
 
+[<Fact>]
+let ThrowsForInvalidChord() =
+    let chord = "/D"
+    
+    let action = fun () -> chord |> DeslashChord |> ignore
+
+    Assert.Throws<ArgumentException> action
