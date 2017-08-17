@@ -13,7 +13,7 @@ let ValidatesSongNormalInput() =
     Assert.Equal(expected, actual)
 
 [<Theory>]
-[<InlineData(null, "where is my mind?")>]
+[<InlineData("", "where is my mind?")>]
 [<InlineData("pixies", "")>]
 [<InlineData(" ", "   ")>]
 let ValidatesSongBadInput artist title =
@@ -34,7 +34,6 @@ let ValidatesNormalInput() =
     Assert.Equal(expected, actual)
 
 [<Theory>]
-[<InlineData(null)>]
 [<InlineData("")>]
 [<InlineData(" ")>]
 [<InlineData("     ")>]

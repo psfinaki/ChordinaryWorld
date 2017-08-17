@@ -6,8 +6,10 @@ type ChordsController() =
     inherit ApiController()
 
     member x.Get(artist, title) =
+        let Unnullify s = if s = null then "" else s 
+
         let result = 
-            (artist, title)
+            (Unnullify artist, Unnullify title)
             |> Core.GetNumberOfHarmonies
 
         match result with
