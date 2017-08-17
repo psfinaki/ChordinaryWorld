@@ -9,7 +9,7 @@ let GetsNumberOfHarmonies() =
     let expected = 3
 
     let actual = chords |> GetNumberOfHarmonies |> function | Success x -> x
-
+    
     Assert.Equal(expected, actual)
 
 [<Fact>]
@@ -43,6 +43,15 @@ let GetsNumberOfChordsWhenPowers() =
 let GetsNumberOfHarmoniesWhenFlavours() =
     let chords = ["A"; "Amaj7"; "D"; "E"; "Bm"]
     let expected = 4
+
+    let actual = chords |> GetNumberOfHarmonies |> function | Success x -> x
+
+    Assert.Equal(expected, actual)
+
+[<Fact>]
+let GetsNumberOfHarmoniesWhenZeroChords() =
+    let chords = []
+    let expected = 0
 
     let actual = chords |> GetNumberOfHarmonies |> function | Success x -> x
 
