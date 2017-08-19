@@ -1,5 +1,8 @@
 ﻿function makeQuery(artist: string, title: string): string {
-    return `artist=${artist}&title=${title}`;
+    const sanitizedArtist = encodeURIComponent(artist);
+    const sanitizedTitle = encodeURIComponent(title);
+
+    return `artist=${sanitizedArtist}&title=${sanitizedTitle}`;
 }
 
 function makeUrl(artist: string, title: string): string {

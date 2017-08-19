@@ -7,7 +7,6 @@ let GetNumberOfHarmonies song =
     else
         song
         |> Validator.ValidateSong
-        |> map Canonicalizer.CanonicalizeSong
         |> bind Crawler.GetTab
         |> map HtmlParser.GetChords
         |> bind Engine.GetNumberOfHarmonies

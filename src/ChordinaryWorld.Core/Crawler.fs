@@ -1,8 +1,22 @@
 ﻿module internal Crawler
 
+let GetVariations (s: string) =
+    seq {
+        match s with
+        | s when s.Contains " & " ->
+            yield s.Replace(" & ", " and ")
+            yield s.Replace(" & ", " ")
+        | s when s.Contains " + " ->
+            yield s.Replace(" + ", " and ")
+            yield s.Replace(" + ", " ")
+        | _ ->
+            yield s
+    }
+
 let GetTabs (artist, title) =
+    let canonicalized = Canonicalizer.CanonicalizeSong (artist, title)
     let htmlGenerator x = 
-        (artist, title, x)
+        (fst canonicalized, snd canonicalized, x)
         |> UrlMaker.MakeUrl
         |> Downloader.DownloadHtml
 
@@ -19,7 +33,11 @@ let ChooseBestTab tabs =
     |> fst
 
 let GetTab (artist, title) =
-    let tabs = GetTabs(artist, title)
+    let tabs = 
+        GetVariations title
+        |> cartesian (GetVariations artist)
+        |> Seq.collect GetTabs
+
     match Seq.length tabs with
     | 0 -> 
         Failure ChordsNotFound
