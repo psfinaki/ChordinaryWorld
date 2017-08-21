@@ -5,9 +5,9 @@ open Validator
 
 [<Fact>]
 let ValidatesSongNormalInput() =
-    let song = ("Pixies", "Where Is My Mind?")
+    let song = Song.Create("Pixies", "Where Is My Mind?")
     let expected = Success song
-
+    
     let actual = ValidateSong song
 
     Assert.Equal(expected, actual)
@@ -17,7 +17,7 @@ let ValidatesSongNormalInput() =
 [<InlineData("pixies", "")>]
 [<InlineData(" ", "   ")>]
 let ValidatesSongBadInput artist title =
-    let song = (artist, title)
+    let song = Song.Create(artist, title)
     let expected = EmptyInput
 
     let actual = song |> ValidateSong |> function | Failure x -> x

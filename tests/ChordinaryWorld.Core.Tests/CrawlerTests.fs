@@ -11,7 +11,7 @@ open Crawler
 let GetsTabs artist title numberOfTabs = 
     let expected = numberOfTabs
     
-    let actual = (artist, title) |> GetTabs |> Seq.length 
+    let actual = Song.Create(artist, title) |> GetTabs |> Seq.length 
 
     Assert.Equal(expected, actual)
 

@@ -52,8 +52,8 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
-    <Compile Include="Result.fs" />
-    <Compile Include="AbstractOperations.fs" />
+    <Compile Include="Types.fs" />
+    <Compile Include="Operations.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

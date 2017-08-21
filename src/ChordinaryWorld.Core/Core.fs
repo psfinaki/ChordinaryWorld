@@ -1,11 +1,11 @@
 ﻿module Core
 
-let GetNumberOfHarmonies song =
-    if fst song = "kino"
+let GetNumberOfHarmonies (artist, title) =
+    if artist = "kino"
     then
         Success 3
     else
-        song
+        Song.Create(artist, title)
         |> Validator.ValidateSong
         |> bind Crawler.GetTab
         |> map HtmlParser.GetChords

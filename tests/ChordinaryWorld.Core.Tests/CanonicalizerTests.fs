@@ -5,8 +5,8 @@ open Canonicalizer
 
 [<Fact>]
 let CanonicalizesSong() =
-    let song = ("LP", "lost on you")
-    let expected = ("lp", "lost_on_you")
+    let song = Song.Create("LP", "lost on you")
+    let expected = Song.Create("lp", "lost_on_you")
 
     let actual = CanonicalizeSong song
 

@@ -21,5 +21,5 @@ let Canonicalize =
     >> HandlePunctuation
     >> HandleSpaces
 
-let CanonicalizeSong (artist, title) =
-    (Canonicalize artist, Canonicalize title)
+let CanonicalizeSong song =
+    Song.Create(Canonicalize song.Artist, Canonicalize song.Title)

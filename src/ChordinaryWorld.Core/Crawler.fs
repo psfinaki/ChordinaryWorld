@@ -13,11 +13,11 @@ let GetVariations (s: string) =
             yield s
     }
 
-let GetTabs (artist, title) =
-    let canonicalized = Canonicalizer.CanonicalizeSong (artist, title)
+let GetTabs song =
     let htmlGenerator x = 
-        (fst canonicalized, snd canonicalized, x)
-        |> UrlMaker.MakeUrl
+        song
+        |> Canonicalizer.CanonicalizeSong
+        |> UrlMaker.MakeUrl x
         |> Downloader.DownloadHtml
 
     htmlGenerator
@@ -32,10 +32,11 @@ let ChooseBestTab tabs =
     |> Seq.maxBy snd
     |> fst
 
-let GetTab (artist, title) =
+let GetTab song =
     let tabs = 
-        GetVariations title
-        |> cartesian (GetVariations artist)
+        GetVariations song.Title
+        |> cartesian (GetVariations song.Artist)
+        |> Seq.map Song.Create
         |> Seq.collect GetTabs
 
     match Seq.length tabs with

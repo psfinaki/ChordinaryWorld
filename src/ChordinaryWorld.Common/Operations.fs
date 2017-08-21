@@ -1,5 +1,5 @@
 ﻿[<AutoOpen>]
-module AbstractOperations
+module Operations
 
 let map f input = 
     match input with

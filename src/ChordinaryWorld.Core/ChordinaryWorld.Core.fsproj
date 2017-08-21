@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
+    <Compile Include="Song.fs" />
     <Compile Include="Canonicalizer.fs" />
     <Compile Include="Downloader.fs" />
     <Compile Include="HtmlParser.fs" />

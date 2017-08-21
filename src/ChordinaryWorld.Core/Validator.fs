@@ -7,10 +7,10 @@ let Validate input =
     then Failure EmptyInput
     else Success input 
 
-let ValidateSong (artist, title) =
-    (Validate artist, Validate title)
+let ValidateSong song =
+    (Validate song.Artist, Validate song.Title)
     |> function
         | (Success x, Success y) 
-            -> Success (x,y)
+            -> Success (Song.Create(x,y))
         | (Failure z, _) | (_, Failure z) 
             -> Failure z
