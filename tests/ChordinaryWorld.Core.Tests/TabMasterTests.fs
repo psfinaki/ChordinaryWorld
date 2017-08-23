@@ -35,6 +35,6 @@ let HandlesNoTabs() =
     let song = Song.Create("unknown", "song")
     let expected = ChordsNotFound
     
-    let actual = song |> GetTab |> function | Failure x -> x
+    let actual = song |> GetTab |> ExtractFailure
 
     Assert.Equal(expected, actual)

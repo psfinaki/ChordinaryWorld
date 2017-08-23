@@ -35,7 +35,7 @@ let Deflavours() =
     let chords = ["E"; "E7"; "Dm"; "Dadd9"]
     let expected = ["E"; "Dm"; "D"]
 
-    let actual = chords |> Deflavour |> function | Success x -> x
+    let actual = chords |> Deflavour |> ExtractSuccess
 
     Assert.Equal(expected, actual)
 
@@ -44,6 +44,6 @@ let HandlesUnknownFlavours() =
     let chords = ["E"; "F#Weird"; "Dm"; "BbmWrong"]
     let expected = UnknownFlavour
 
-    let actual = chords |> Deflavour |> function | Failure x -> x
+    let actual = chords |> Deflavour |> ExtractFailure
 
     Assert.Equal(expected, actual)

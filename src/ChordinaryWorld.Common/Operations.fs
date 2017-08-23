@@ -17,3 +17,7 @@ let cartesian xs ys =
         for y in ys do
             yield (x, y)
     }
+
+// for tests
+let ExtractSuccess = function | Success x -> x | Failure _ -> failwith "Expected Success here"
+let ExtractFailure = function | Failure x -> x | Success _ -> failwith "Expected Failure here"

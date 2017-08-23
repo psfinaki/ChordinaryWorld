@@ -8,7 +8,7 @@ let GetsThreeHarmoniesForKino() =
     let song = ("kino", "pachka sigaret")
     let expected = 3
 
-    let actual = song |> GetNumberOfHarmonies |> function | Success x -> x
+    let actual = song |> GetNumberOfHarmonies |> ExtractSuccess
 
     Assert.Equal(expected, actual)
 
@@ -38,7 +38,7 @@ let GetsNumberOfHarmoniesForNormalSongs artist title numberOfHarmonies =
     let expected = numberOfHarmonies
 
     let song = (artist, title)
-    let actual = song |> GetNumberOfHarmonies |> function | Success x -> x
+    let actual = song |> GetNumberOfHarmonies |> ExtractSuccess
 
     Assert.Equal(expected, actual)
 
@@ -47,6 +47,6 @@ let HandlesNotFoundSong() =
     let song = ("Nothing But Thieves", "Ban All The Music")
     let expected = ChordsNotFound
     
-    let actual = song |> GetNumberOfHarmonies |> function | Result.Failure x -> x
+    let actual = song |> GetNumberOfHarmonies |> ExtractFailure
 
     Assert.Equal(expected, actual)
