@@ -59,6 +59,7 @@
     <Compile Include="UrlMaker.fs" />
     <Compile Include="Validator.fs" />
     <Compile Include="Crawler.fs" />
+    <Compile Include="TabMaster.fs" />
     <Compile Include="Core.fs" />
   </ItemGroup>
   <ItemGroup>
