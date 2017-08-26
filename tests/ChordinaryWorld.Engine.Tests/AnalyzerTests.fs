@@ -1,5 +1,6 @@
 ﻿module AnalyzerTests
 
+open System
 open Xunit
 open Analyzer
    
@@ -29,3 +30,11 @@ let AnalyzesFlatChord() =
     let actual = AnalyzeChord chord
     
     Assert.Equal(expected, actual)
+
+[<Fact>]
+let ThrowsForNotAChord() =
+    let chord = "Uprising"
+
+    let action = fun () -> AnalyzeChord chord |> ignore
+    
+    Assert.Throws<ArgumentException> action

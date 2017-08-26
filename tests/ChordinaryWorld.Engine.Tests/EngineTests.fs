@@ -1,5 +1,6 @@
 ﻿module EngineTests
 
+open System
 open Xunit
 open Engine
 
@@ -65,3 +66,11 @@ let HandlesUnknownFlavours() =
     let actual = chords |> GetNumberOfHarmonies |> ExtractFailure
 
     Assert.Equal(expected, actual)
+
+[<Fact>]
+let ThrowsForNotChords() =
+    let chords = [ "Random" ]
+
+    let action = fun () -> GetNumberOfHarmonies chords |> ignore
+    
+    Assert.Throws<ArgumentException> action

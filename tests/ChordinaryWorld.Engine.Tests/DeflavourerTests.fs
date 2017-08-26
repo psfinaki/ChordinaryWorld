@@ -1,5 +1,6 @@
 ﻿module DeflavourerTests
 
+open System
 open System.Collections.Generic
 open Xunit
 open Deflavourer
@@ -47,3 +48,11 @@ let HandlesUnknownFlavours() =
     let actual = chords |> Deflavour |> ExtractFailure
 
     Assert.Equal(expected, actual)
+
+[<Fact>]
+let ThrowsForNotAChord() =
+    let chord = "Random"
+
+    let action = fun () -> DeflavourChord chord |> ignore
+    
+    Assert.Throws<ArgumentException> action

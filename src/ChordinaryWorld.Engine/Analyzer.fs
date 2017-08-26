@@ -4,9 +4,12 @@ open System.Text.RegularExpressions
 
 let AnalyzeChord chord =
     let regex = "([ABCDEFG]{1}[#b]?)(.*)"
-    let groups = Regex.Match(chord, regex).Groups
+    let m = Regex.Match(chord, regex)
 
-    let tonic = groups.[1].Value
-    let flavour = groups.[2].Value
-
-    (tonic, flavour)
+    match m.Success with
+    | false -> 
+        invalidArg "chord" "chord must start with letter form A-G diapason"
+    | true ->
+        let tonic = m.Groups.[1].Value
+        let flavour = m.Groups.[2].Value
+        (tonic, flavour)
