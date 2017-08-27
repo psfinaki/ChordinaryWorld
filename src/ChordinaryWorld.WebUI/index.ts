@@ -9,12 +9,15 @@ function search(): void {
 
     const url = makeUrl(artist, title);
     $.get(url)
-        .done((result: number) => {
-            const message = translateResult(result);
+        .done((response: number) => {
+            const message = formatSuccess(response);
             $('#result').text(message);
         })
-        .fail(() => {
-            const message = "Something went wrong. Sorry for bad diagnostics!";
+        .fail((response: JQueryXHR) => {
+            const message = response.status == 400
+                ? formatFailure(response.responseJSON.message)
+                : "Something went wrong. Sorry for bad diagnostics!";
+
             $('#result').text(message);
         })
         .always(() => {

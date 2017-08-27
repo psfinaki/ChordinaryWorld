@@ -13,15 +13,19 @@ function makeUrl(artist: string, title: string): string {
     return `http://${authority}/api/chords?${query}`;
 }
 
-function translateResult(result: number): string {
-    switch (result) {
-        case -1:
+function formatSuccess(harmonies: number): string {
+    return `Number of harmonies here is ${harmonies}.`;
+}
+
+function formatFailure(error: string): string {
+    switch (error) {
+        case "ChordsNotFound":
             return "Chords to this song cannot be retrieved.";
-        case -2:
+        case "EmptyInput":
             return "Empty input is not allowed.";
-        case -3:
+        case "UnknownFlavour":
             return "There is a problem with the chords found. Please write developers about this song."
         default:
-            return `Number of harmonies here is ${result}.`;
+            return "There is an internal problem with the service. Please write developers about this song.";
     }
 }

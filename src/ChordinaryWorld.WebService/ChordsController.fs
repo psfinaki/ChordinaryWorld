@@ -13,10 +13,9 @@ type ChordsController() =
             |> Core.GetNumberOfHarmonies
 
         match result with
-        | Success x -> 
-            x
-        | Failure error ->
-            match error with
-            | ChordsNotFound -> -1
-            | EmptyInput -> -2
-            | UnknownFlavour -> -3
+        | Success harmonies -> 
+            x.Ok harmonies 
+            :> IHttpActionResult
+        | Failure message ->
+            x.BadRequest(message.ToString())
+            :> IHttpActionResult
