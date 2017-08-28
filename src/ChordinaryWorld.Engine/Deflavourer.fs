@@ -13,6 +13,7 @@ let private flavours =
           "maj7", "";
           "M", "";
           "7b9", "";
+          "7-9", "";
           "9", "";
           "maj9", "";
           "7#9", "";
@@ -29,10 +30,12 @@ let private flavours =
           "aug", "aug"; 
           "7#5", "aug"; 
           "9#5", "aug"; 
+          "+", "aug"; 
           
           "dim", "dim"; 
           "dim7", "dim"; 
           "m7b5", "dim";
+          "o", "dim";
                          ]
 
 let DeflavourChord chord =
