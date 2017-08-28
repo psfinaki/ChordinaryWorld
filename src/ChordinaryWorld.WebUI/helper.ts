@@ -10,7 +10,7 @@ function makeUrl(artist: string, title: string): string {
     const authority = "chordinaryworld.azurewebsites.net";
     const query = makeQuery(artist, title);
 
-    return `http://${authority}/api/chords?${query}`;
+    return `http://${authority}/api/harmonies?${query}`;
 }
 
 function formatSuccess(harmonies: number): string {

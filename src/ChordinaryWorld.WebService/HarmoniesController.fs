@@ -2,7 +2,7 @@
 
 open System.Web.Http
 
-type ChordsController() =
+type HarmoniesController() =
     inherit ApiController()
 
     member x.Get(artist, title) =
