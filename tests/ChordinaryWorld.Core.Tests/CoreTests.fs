@@ -15,7 +15,7 @@ let GetsThreeHarmoniesForKino() =
 [<Theory>]
 [<InlineData("Glass Animals", "Life Itself", 6)>]
 [<InlineData("Imagine Dragons", "Radioactive", 4)>]
-[<InlineData("Royal Blood", "Lights Out", 7)>]
+[<InlineData("Royal Blood", "Lights Out", 9)>]
 [<InlineData("Glass Animals", "Youth", 4)>]
 [<InlineData("Arcade Fire", "The Suburbs", 5)>]
 [<InlineData("The Jesus And Mary Chain", "About You", 4)>]
