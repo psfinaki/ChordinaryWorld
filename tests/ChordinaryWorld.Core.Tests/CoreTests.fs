@@ -35,6 +35,8 @@ let GetsThreeHarmoniesForKino() =
 [<InlineData("Florence + The Machine", "Never Let Me Go", 5)>]
 [<InlineData("Angus & Julia Stone", "Johnny & June", 2)>]
 [<InlineData("Queen", "Bohemian Rhapsody", 24)>]
+[<InlineData("Radiohead", "High & Dry", 2)>]
+[<InlineData("Metallica", "Enter Sandman", 6)>]
 let GetsNumberOfHarmoniesForNormalSongs artist title numberOfHarmonies =
     let expected = numberOfHarmonies
 

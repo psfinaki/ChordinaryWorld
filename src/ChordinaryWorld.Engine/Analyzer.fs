@@ -13,3 +13,6 @@ let AnalyzeChord chord =
         let tonic = m.Groups.[1].Value
         let flavour = m.Groups.[2].Value
         (tonic, flavour)
+
+let GetTonic chord = fst (AnalyzeChord chord)
+

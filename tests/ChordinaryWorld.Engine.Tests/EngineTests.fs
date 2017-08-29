@@ -23,7 +23,7 @@ let GetsNumberOfHarmoniesWhenDuplicates() =
     Assert.Equal(expected, actual)
 
 [<Fact>]
-let GetsNumberOfChordsWhenSuspends() =
+let GetsNumberOfChordsWhenFriendlySuspends() =
     let chords = [ "A"; "Asus2"; "E"; "Esus4"; ]
     let expected = 2
 
@@ -32,9 +32,27 @@ let GetsNumberOfChordsWhenSuspends() =
     Assert.Equal(expected, actual)
 
 [<Fact>]
-let GetsNumberOfChordsWhenPowers() =
+let GetsNumberOfChordsWhenLonelySuspends() =
+    let chords = [ "A"; "Asus2"; "E"; "Dsus4"; ]
+    let expected = 3
+
+    let actual = chords |> GetNumberOfHarmonies |> ExtractSuccess
+
+    Assert.Equal(expected, actual)
+
+[<Fact>]
+let GetsNumberOfChordsWhenFriendlyPowers() =
     let chords = [ "A"; "A5"; "E"; "E5"; ]
     let expected = 2
+
+    let actual = chords |> GetNumberOfHarmonies |> ExtractSuccess
+
+    Assert.Equal(expected, actual)
+
+[<Fact>]
+let GetsNumberOfChordsWhenLonelyPowers() =
+    let chords = [ "A"; "A5"; "E"; "D5"; ]
+    let expected = 3
 
     let actual = chords |> GetNumberOfHarmonies |> ExtractSuccess
 

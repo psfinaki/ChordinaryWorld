@@ -38,3 +38,15 @@ let ThrowsForNotAChord() =
     let action = fun () -> AnalyzeChord chord |> ignore
     
     Assert.Throws<ArgumentException> action
+
+[<Theory>]
+[<InlineData("A#")>]
+[<InlineData("A#7")>]
+[<InlineData("A#m")>]
+let GetsTonic chord =
+    let expected = "A#"
+
+    let actual = GetTonic chord
+
+    Assert.Equal(expected, actual)
+

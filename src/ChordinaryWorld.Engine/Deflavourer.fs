@@ -36,6 +36,12 @@ let private flavours =
           "dim7", "dim"; 
           "m7b5", "dim";
           "o", "dim";
+
+          "sus", "sus4";
+          "sus4", "sus4";
+          "sus2", "sus2";
+          "sus2sus4", "sus2sus4";
+          "5", "5";
                          ]
 
 let DeflavourChord chord =
