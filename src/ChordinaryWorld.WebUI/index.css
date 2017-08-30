@@ -1,0 +1,26 @@
+﻿h1 {
+    font-size: 84px;
+    color: green;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+label {
+    color: green;
+    font-size: x-large;
+}
+
+.invisible-span {
+    width: 0px;
+}
+
+.shifted-left {
+    margin-left: -50px;
+}
+
+.centered {
+    text-align: center;
+}

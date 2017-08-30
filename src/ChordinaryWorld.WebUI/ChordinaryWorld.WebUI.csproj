@@ -59,7 +59,9 @@
     <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="about.css" />
     <Content Include="favicon.ico" />
+    <Content Include="index.css" />
     <Content Include="Resources\clef.gif" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

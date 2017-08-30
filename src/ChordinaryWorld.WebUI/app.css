@@ -2,48 +2,6 @@
     background-color: orange;
 }
 
-h1 {
-    text-align: center;
-    font-size: 84px;
-    color: green;
-}
-
-h3 {
-    margin-left: 20px;
-    font-size: 18px;
-    color: antiquewhite;
-}
-
-h4 {
-    text-align: center;
-}
-
-label {
-    color: green;
-    font-size: x-large;
-}
-
-input {
-    text-align: center;
-}
-
-img {
-    display: block;
-    margin: auto;
-}
-
-.invisible-span {
-    width: 0px;
-}
-
-.shifted {
-    margin-left: 30px;
-}
-
-.shifted-left {
-    margin-left: -50px;
-}
-
 .footer {
     position: fixed;
     bottom: 5px;
