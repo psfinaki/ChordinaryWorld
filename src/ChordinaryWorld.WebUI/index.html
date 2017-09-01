@@ -13,26 +13,28 @@
 </head>
 <body>
     <div id="content">
-        <h1 class="centered">Chordinary World</h1>
+        <h1 class="centered padded">Chordinary World</h1>
         <h4 class="centered">Get number of harmonies in a song</h4>
         <hr />
         <br />
         <br />
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6 col-lg-offset-3">
-                    <div class="input-group">
-                        <input id="artist" type="text" class="form-control centered" placeholder="artist" />
-                        <span class="input-group-btn invisible-span"></span>
-                        <input id="title" type="text" class="form-control centered" placeholder="title" />
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" id="search">Go!</button>
-                        </span>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="padded">
+                        <div class="input-group">
+                            <input id="artist" type="text" class="form-control centered" placeholder="artist" />
+                            <span class="input-group-btn invisible-span"></span>
+                            <input id="title" type="text" class="form-control centered" placeholder="title" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" id="search">Go!</button>
+                            </span>
+                        </div>
+                        <label id="result" hidden />
                     </div>
-                    <div class="shifted-left">
+                    <div>
                         <img id="progress" src="Resources/clef.gif" hidden />
                     </div>
-                    <label id="result" hidden />
                 </div>
             </div>
         </div>

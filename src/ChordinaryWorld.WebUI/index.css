@@ -1,5 +1,5 @@
 ﻿h1 {
-    font-size: 84px;
+    font-size: 105px;
     color: green;
 }
 
@@ -13,12 +13,17 @@ label {
     font-size: x-large;
 }
 
+button {
+    width: 50px;
+}
+
 .invisible-span {
     width: 0px;
 }
 
-.shifted-left {
-    margin-left: -50px;
+.padded {
+    /* by button width */
+    padding-left: 50px;
 }
 
 .centered {
