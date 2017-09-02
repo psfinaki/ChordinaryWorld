@@ -5,8 +5,7 @@ let GetNumberOfHarmonies (artist, title) =
     then
         Success 3
     else
-        Song.Create(artist, title)
+        (artist, title)
         |> Validator.ValidateSong
-        |> bind TabMaster.GetTab
-        |> map HtmlParser.GetChords
+        |> bind ChordsProvider.GetChords
         |> bind Engine.GetNumberOfHarmonies

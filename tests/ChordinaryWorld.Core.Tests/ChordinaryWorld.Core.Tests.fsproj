@@ -58,12 +58,6 @@
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
     <Compile Include="CoreTests.fs" />
-    <Compile Include="CrawlerTests.fs" />
-    <Compile Include="CanonicalizerTests.fs" />
-    <Compile Include="DownloaderTests.fs" />
-    <Compile Include="HtmlParserTests.fs" />
-    <Compile Include="UrlMakerTests.fs" />
-    <Compile Include="TabMasterTests.fs" />
     <Compile Include="ValidatorTests.fs" />
   </ItemGroup>
   <ItemGroup>
