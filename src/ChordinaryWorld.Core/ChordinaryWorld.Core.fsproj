@@ -58,6 +58,9 @@
     <Compile Include="Core.fs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="ChordinaryWorld.ChordsProvider">
+      <HintPath>ChordinaryWorld.ChordsProvider.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core">
       <Name>FSharp.Core</Name>
@@ -69,11 +72,6 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ChordinaryWorld.ChordsProvider\ChordinaryWorld.ChordsProvider.fsproj">
-      <Name>ChordinaryWorld.ChordsProvider</Name>
-      <Project>{60966af6-f982-4ed5-9fb1-8cf4b243772b}</Project>
-      <Private>True</Private>
-    </ProjectReference>
     <ProjectReference Include="..\ChordinaryWorld.Common\ChordinaryWorld.Common.fsproj">
       <Name>ChordinaryWorld.Common</Name>
       <Project>{e85cd67b-8e2b-4ee7-9841-e32277f3a321}</Project>
