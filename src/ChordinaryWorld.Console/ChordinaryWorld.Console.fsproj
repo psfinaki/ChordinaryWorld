@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>9a132123-4a26-453f-bb38-83f7ba6a5cbd</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ChordsGeek</RootNamespace>
-    <AssemblyName>ChordsGeek</AssemblyName>
+    <RootNamespace>ChordinaryWorld.Console</RootNamespace>
+    <AssemblyName>ChordinaryWorld.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.1.0</TargetFSharpCoreVersion>
