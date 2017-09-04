@@ -263,5 +263,3 @@ __pycache__/
 # Typescript
 *.js.map
 *.js
-/src/ChordinaryWorld.ChordsProvider
-/tests/ChordinaryWorld.ChordsProvider.Tests
