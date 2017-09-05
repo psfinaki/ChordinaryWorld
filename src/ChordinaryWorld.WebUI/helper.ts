@@ -23,7 +23,7 @@ function formatFailure(error: string): string {
             return "Chords to this song cannot be retrieved.";
         case "EmptyInput":
             return "Empty input is not allowed.";
-        case "UnknownFlavour":
+        case "UnknownFlavours":
             return "There is a problem with the chords found. Please write developers about this song."
         default:
             return "There is an internal problem with the service. Please write developers about this song.";

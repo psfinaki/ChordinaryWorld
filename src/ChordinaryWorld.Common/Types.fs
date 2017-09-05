@@ -1,11 +1,18 @@
 ﻿[<AutoOpen>]
 module Types
 
+open Microsoft.FSharp.Reflection
+
 type ErrorMessage =
     | ChordsNotFound
     | EmptyInput
-    | UnknownFlavour
+    | UnknownFlavours of seq<string>
 
-type Result<'TEntity> =
-    | Success of 'TEntity
-    | Failure of ErrorMessage
+    // inspiration: https://stackoverflow.com/a/1259500/3232646
+    member x.GetErrorName() = 
+        match FSharpValue.GetUnionFields(x, x.GetType()) with
+        | (case, _) -> case.Name  
+
+type Result<'TSuccess,'TFailure> =
+    | Success of 'TSuccess
+    | Failure of 'TFailure

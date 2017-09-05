@@ -79,11 +79,11 @@ let GetsNumberOfHarmoniesWhenZeroChords() =
 [<Fact>]
 let HandlesUnknownFlavours() =
     let chords = ["A"; "Glass"]
-    let expected = UnknownFlavour
 
     let actual = chords |> GetNumberOfHarmonies |> ExtractFailure
+    let result = actual |> function | UnknownFlavours _ -> true | _ -> false
 
-    Assert.Equal(expected, actual)
+    Assert.True(result)
 
 [<Fact>]
 let ThrowsForNotChords() =

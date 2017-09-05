@@ -17,5 +17,5 @@ type HarmoniesController() =
             x.Ok harmonies 
             :> IHttpActionResult
         | Failure message ->
-            x.BadRequest(message.ToString())
+            x.BadRequest(message.GetErrorName())
             :> IHttpActionResult

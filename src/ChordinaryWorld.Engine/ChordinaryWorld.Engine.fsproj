@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
+    <Compile Include="Flavours.fs" />
     <Compile Include="Analyzer.fs" />
     <Compile Include="Deflavourer.fs" />
     <Compile Include="Deslasher.fs" />

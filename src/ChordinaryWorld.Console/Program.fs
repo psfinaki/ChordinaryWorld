@@ -26,8 +26,8 @@ let main argv =
                 printfn "Chords are not found"
             | EmptyInput ->
                 printfn "Empty input is not allowed"
-            | UnknownFlavour ->
-                printfn "Unknown chord in the tab"
+            | UnknownFlavours x ->
+                printfn "Unknown flavours in the tab: %A" (Seq.toList x)
 
         Console.WriteLine()
     0

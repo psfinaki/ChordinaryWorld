@@ -1,9 +1,13 @@
 ﻿module DeflavourerTests
 
 open System
-open System.Collections.Generic
 open Xunit
 open Deflavourer
+
+let ExtractUnknownFlavours result = 
+    result
+    |> ExtractFailure 
+    |> function | UnknownFlavours x -> x | _ -> failwith "Wrong error"
 
 [<Theory>]
 [<InlineData("A", "A")>]
@@ -19,17 +23,18 @@ open Deflavourer
 let DeflavoursChord chord deflavoured =
     let expected = deflavoured
 
-    let actual = DeflavourChord chord
+    let actual = chord |> DeflavourChord |> ExtractSuccess
 
     Assert.Equal(expected, actual)
 
 [<Fact>]
-let ThrowsForUnknownFlavour() =
+let RetrievesUnknownFlavour() =
     let chord = "F#UNKNOWN"
+    let expected = "UNKNOWN"
     
-    let action = fun () -> DeflavourChord chord |> ignore
+    let actual = chord |> DeflavourChord |> ExtractFailure
 
-    Assert.Throws<KeyNotFoundException> action
+    Assert.Equal(expected, actual)
 
 [<Fact>]
 let Deflavours() =
@@ -42,10 +47,19 @@ let Deflavours() =
 
 [<Fact>]
 let HandlesUnknownFlavours() =
-    let chords = ["E"; "F#Weird"; "Dm"; "BbmWrong"]
-    let expected = UnknownFlavour
+    let chords = ["E"; "F#Weird"; "Dm"; "BbWrong"]
+    let expected = [ "Weird"; "Wrong" ]
 
-    let actual = chords |> Deflavour |> ExtractFailure
+    let actual = chords |> Deflavour |> ExtractUnknownFlavours
+
+    Assert.Equal(expected, actual)
+
+[<Fact>]
+let HandlesUnknownFlavoursWithDuplicates() =
+    let chords = ["E"; "F#Weird"; "Dm"; "BbWrong"; "CWrong"]
+    let expected = [ "Weird"; "Wrong" ]
+
+    let actual = chords |> Deflavour |> ExtractUnknownFlavours
 
     Assert.Equal(expected, actual)
 
