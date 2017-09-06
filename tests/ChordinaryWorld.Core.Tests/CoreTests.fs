@@ -3,15 +3,6 @@
 open Xunit
 open Core
 
-[<Fact>]
-let GetsThreeHarmoniesForKino() = 
-    let song = ("kino", "pachka sigaret")
-    let expected = 3
-
-    let actual = song |> GetNumberOfHarmonies |> ExtractSuccess
-
-    Assert.Equal(expected, actual)
-
 [<Theory>]
 [<InlineData("Glass Animals", "Life Itself", 6)>]
 [<InlineData("Imagine Dragons", "Radioactive", 4)>]
