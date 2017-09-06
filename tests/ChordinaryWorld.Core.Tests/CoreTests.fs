@@ -28,7 +28,7 @@ open Core
 [<InlineData("Queen", "Bohemian Rhapsody", 24)>]
 [<InlineData("Radiohead", "High & Dry", 2)>]
 [<InlineData("Metallica", "Enter Sandman", 6)>]
-let GetsNumberOfHarmoniesForNormalSongs artist title numberOfHarmonies =
+let GetsNumberOfHarmonies artist title numberOfHarmonies =
     let expected = numberOfHarmonies
 
     let song = (artist, title)
@@ -40,6 +40,15 @@ let GetsNumberOfHarmoniesForNormalSongs artist title numberOfHarmonies =
 let HandlesNotFoundSong() =
     let song = ("Nothing But Thieves", "Ban All The Music")
     let expected = ChordsNotFound
+    
+    let actual = song |> GetNumberOfHarmonies |> ExtractFailure
+
+    Assert.Equal(expected, actual)
+    
+[<Fact>]
+let HandlesEmptyInput() =
+    let song = ("Tender", "")
+    let expected = EmptyInput
     
     let actual = song |> GetNumberOfHarmonies |> ExtractFailure
 
