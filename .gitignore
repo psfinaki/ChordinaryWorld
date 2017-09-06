@@ -263,3 +263,4 @@ __pycache__/
 # Typescript
 *.js.map
 *.js
+!src/ChordinaryWorld.WebUI/Scripts/*.js
