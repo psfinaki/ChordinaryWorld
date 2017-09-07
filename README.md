@@ -14,7 +14,6 @@ General:
 
 Auxiliary:
 - The testing frameworks are xUnit (for F#) and Jasmine (for TS, run by Chutzpah).
-- The logging framework is NLog (for F#).
 - The web app is obviously done with the help of Bootstrap and jQuery.
 
 ### More info?
