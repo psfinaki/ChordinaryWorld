@@ -1,9 +1,9 @@
 ﻿module internal Logger
 
 open System
-open NLog
+open System.Diagnostics
 
-let LogError (s: string) = (LogManager.GetCurrentClassLogger()).Error s
+let LogError = Trace.TraceError
 
 let LogSongError (artist, title) message =
     String.Format("{0} - {1} - {2}", artist, title, message) 
