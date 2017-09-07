@@ -1,7 +1,8 @@
 ﻿module Core
 
-let GetNumberOfHarmonies (artist, title) =
-    (artist, title)
+let GetNumberOfHarmonies song =
+    song
     |> Validator.ValidateSong
     |> bind ChordsProvider.GetChords
     |> bind Engine.GetNumberOfHarmonies
+    |> Logger.Log song

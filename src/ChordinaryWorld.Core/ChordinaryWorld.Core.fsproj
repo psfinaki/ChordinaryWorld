@@ -54,8 +54,13 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
+    <Compile Include="Logger.fs" />
     <Compile Include="Validator.fs" />
     <Compile Include="Core.fs" />
+    <None Include="NLog.xsd" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ChordinaryWorld.ChordsProvider">
@@ -67,11 +72,12 @@
       <AssemblyName>FSharp.Core.dll</AssemblyName>
       <HintPath>$(MSBuildProgramFiles32)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\$(TargetFSharpCoreVersion)\FSharp.Core.dll</HintPath>
     </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ChordinaryWorld.Common\ChordinaryWorld.Common.fsproj">
       <Name>ChordinaryWorld.Common</Name>
       <Project>{e85cd67b-8e2b-4ee7-9841-e32277f3a321}</Project>
