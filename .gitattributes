@@ -66,3 +66,4 @@
 # Correct detection of the Repository language
 ###############################################################################
 src/ChordinaryWorld.WebUI/Scripts/* linguist-vendored
+src/ChordinaryWorld.WebUI/Content/* linguist-vendored
