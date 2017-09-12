@@ -7,6 +7,7 @@
 
 function makeUrl(artist: string, title: string): string {
     //const authority = "localhost:48213";
+    //const authority = "chordinaryworld-test.azurewebsites.net";
     const authority = "chordinaryworld.azurewebsites.net";
     const query = makeQuery(artist, title);
 
