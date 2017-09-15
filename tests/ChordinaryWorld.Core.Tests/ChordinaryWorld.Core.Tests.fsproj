@@ -59,6 +59,7 @@
     <Content Include="packages.config" />
     <Compile Include="CoreTests.fs" />
     <Compile Include="ValidatorTests.fs" />
+    <Content Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

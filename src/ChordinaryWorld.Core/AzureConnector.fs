@@ -1,8 +1,10 @@
 ﻿module AzureConnector
 
-open System
+open FSharp.Configuration
 open Microsoft.Azure.Documents.Client
 open Microsoft.Azure.Documents
+
+type Config = YamlConfig<"config.yaml">
 
 type DocumentClient with 
     member this.GetCollectionsLink database =
@@ -20,16 +22,15 @@ type DocumentClient with
             .DocumentsLink
 
 let SaveDocument document = 
-    let uri = "https://chordinaryworld.documents.azure.com:443/"
-    let key = "secret"
-    use client = new DocumentClient(Uri uri, key) 
+    let config = Config()
+    use client = new DocumentClient(config.Uri, config.Key) 
     
     let database = Database()
-    database.Id <- "Music"
+    database.Id <- config.DatabaseId
     let collectionsLink = client.GetCollectionsLink database
 
     let collection = DocumentCollection()
-    collection.Id <- "Songs"
+    collection.Id <- config.CollectionId
     let documentsLink = client.GetDocumentsLink collectionsLink collection
 
     client.CreateDocumentAsync(documentsLink, document).Result |> ignore
