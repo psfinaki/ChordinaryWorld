@@ -1,0 +1,12 @@
+﻿# Create new file config.yaml and copy this there.
+# File should be automatically git-ignored.
+# Then you can fill it with appropriate values.
+# 
+# If you do not want to deal with Azure,
+# leave example values and comment this in Core:
+# DatabaseConnector.Save song
+
+Uri: https://example.documents.azure.com:443/
+Key: example
+DatabaseId: example
+CollectionId: example

@@ -264,3 +264,4 @@ __pycache__/
 *.js.map
 *.js
 !src/ChordinaryWorld.WebUI/Scripts/*.js
+/src/ChordinaryWorld.Core/config.yaml
