@@ -1,4 +1,4 @@
-﻿module ChordsController
+﻿module HarmoniesController
 
 open System.Web.Http
 
