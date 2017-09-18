@@ -29,6 +29,7 @@ open Core
 [<InlineData("Radiohead", "High & Dry", 2)>]
 [<InlineData("Metallica", "Enter Sandman", 6)>]
 [<InlineData("Oasis", "Wonderwall", 5)>]
+[<InlineData("Oasis", "Live Forever", 6)>]
 let GetsNumberOfHarmonies artist title numberOfHarmonies =
     let expected = numberOfHarmonies
 
