@@ -53,13 +53,13 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Content Include="packages.config" />
     <Compile Include="Flavours.fs" />
     <Compile Include="Analyzer.fs" />
     <Compile Include="Deflavourer.fs" />
     <Compile Include="Deslasher.fs" />
     <Compile Include="Sieve.fs" />
     <Compile Include="Engine.fs" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -71,8 +71,10 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
-  </ItemGroup>
-  <ItemGroup>
+    <Reference Include="System.ValueTuple">
+      <HintPath>..\..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <ProjectReference Include="..\ChordinaryWorld.Common\ChordinaryWorld.Common.fsproj">
       <Name>ChordinaryWorld.Common</Name>
       <Project>{e85cd67b-8e2b-4ee7-9841-e32277f3a321}</Project>
