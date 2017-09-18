@@ -28,6 +28,7 @@ let private flavours =
           "mM7", "m"; 
           "m9", "m"; 
           "m11", "m"; 
+          "m7add4", "m";
           
           "aug", "aug"; 
           "7#5", "aug"; 
