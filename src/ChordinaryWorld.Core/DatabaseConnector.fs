@@ -1,9 +1,19 @@
 ﻿module DatabaseConnector
 
-type Song = { Artist : string; Title : string; Harmonies: int }
+type Song = { 
+    id: string; 
+    artist : string; 
+    title : string; 
+    harmonies: int 
+}
 
 let SaveSong (artist, title) harmonies =
-    { Artist = artist; Title = title; Harmonies = harmonies }
+    { 
+        id = artist + " - " + title;
+        artist = artist; 
+        title = title; 
+        harmonies = harmonies 
+    }
     |> AzureConnector.SaveDocument 
 
 let Save song result = 

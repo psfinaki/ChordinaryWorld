@@ -33,4 +33,4 @@ let SaveDocument document =
     collection.Id <- config.CollectionId
     let documentsLink = client.GetDocumentsLink collectionsLink collection
 
-    client.CreateDocumentAsync(documentsLink, document).Result |> ignore
+    client.UpsertDocumentAsync(documentsLink, document).Result |> ignore
