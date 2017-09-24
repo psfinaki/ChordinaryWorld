@@ -20,6 +20,7 @@ let private flavours =
           "11", "";
           "7sus4", "";
           "M7", "";
+          "add11", "";
                        
           "m", "m"; 
           "min", "m";
