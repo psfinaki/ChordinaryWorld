@@ -13,7 +13,7 @@ type HarmoniesController() =
             |> Core.GetNumberOfHarmonies
 
         match result with
-        | Success harmonies -> 
+        | Success (harmonies, _) -> 
             x.Ok harmonies 
             :> IHttpActionResult
         | Failure message ->

@@ -1,15 +1,22 @@
 ﻿[<AutoOpen>]
 module Operations
 
+let succeed input = Success (input, [])
+
+let appendMessages messages input = 
+    match input with
+    | Success (value, existingMessages) -> Success (value, existingMessages @ messages) 
+    | Failure message -> Failure message 
+
 let map f input = 
     match input with
-    | Success x -> Success (f x)
-    | Failure y -> Failure y
+    | Success (value, messages) -> Success (f value, messages)
+    | Failure message -> Failure message
 
 let bind f input = 
     match input with
-    | Success x -> f x
-    | Failure y -> Failure y
+    | Success (value, messages) -> f value |> appendMessages messages
+    | Failure message -> Failure message
 
 let cartesian xs ys =
     seq {
@@ -19,5 +26,5 @@ let cartesian xs ys =
     }
 
 // for tests
-let ExtractSuccess = function | Success x -> x | Failure _ -> failwith "Expected Success here"
-let ExtractFailure = function | Failure x -> x | Success _ -> failwith "Expected Failure here"
+let ExtractSuccess = function | Success (x,_) -> x | Failure _ -> failwith "Expected Success here"
+let ExtractFailure = function | Failure  x    -> x | Success _ -> failwith "Expected Failure here"

@@ -13,6 +13,6 @@ type ErrorMessage =
         match FSharpValue.GetUnionFields(x, x.GetType()) with
         | (case, _) -> case.Name  
 
-type Result<'TSuccess,'TFailure> =
-    | Success of 'TSuccess
-    | Failure of 'TFailure
+type Result<'TSuccess,'TMessage> =
+    | Success of 'TSuccess * 'TMessage list
+    | Failure of 'TMessage

@@ -14,11 +14,11 @@ let SaveSong (artist, title) harmonies =
         title = title; 
         harmonies = harmonies 
     }
-    |> AzureConnector.SaveDocument 
-
+    |> AzureConnector.SaveDocument
+    
 let Save song result = 
     match result with 
-    | Success number -> SaveSong song number
+    | Success (number,_) -> SaveSong song number
     | Failure _ -> ()
 
     result

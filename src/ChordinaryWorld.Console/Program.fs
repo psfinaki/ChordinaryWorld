@@ -18,7 +18,7 @@ let main argv =
             |> Core.GetNumberOfHarmonies 
 
         match result with
-        | Success x -> 
+        | Success (x,_) -> 
             printfn "Number of harmonies here is %A" x
         | Failure error -> 
             match error with

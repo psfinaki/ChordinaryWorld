@@ -7,19 +7,19 @@ let DeflavourChord chord =
         flavour
         |> Flavours.Get
         |> function 
-            | Some s -> Success (tonic + s) 
+            | Some s -> succeed (tonic + s) 
             | None   -> Failure flavour
 
 let Deflavour chords =
     let results  = Seq.map DeflavourChord chords
-    let knowns   = results |> Seq.choose (function | Success s -> Some s | Failure _ -> None)
-    let unknowns = results |> Seq.choose (function | Failure f -> Some f | Success _ -> None)
+    let knowns   = results |> Seq.choose (function | Success (s,_) -> Some s | Failure _ -> None)
+    let unknowns = results |> Seq.choose (function | Failure  f    -> Some f | Success _ -> None)
 
     match Seq.isEmpty unknowns with
     | true ->
         knowns
         |> Seq.distinct
-        |> Success
+        |> succeed
     | false ->
         unknowns
         |> Seq.distinct
