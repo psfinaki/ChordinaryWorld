@@ -18,6 +18,16 @@ let bind f input =
     | Success (value, messages) -> f value |> appendMessages messages
     | Failure message -> Failure message
 
+let consider f input = 
+    match input with
+    | Success (value, messages) -> 
+        let result = f value
+        match result with
+        | Success (_,_) -> Success (value, messages)
+        | Failure message -> Success (value, (message :: messages))
+    | Failure message -> 
+        Failure message
+
 let cartesian xs ys =
     seq {
         for x in xs do

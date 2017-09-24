@@ -5,5 +5,5 @@ let GetNumberOfHarmonies song =
     |> Validator.ValidateSong
     |> bind ChordsProvider.GetChords
     |> bind Engine.GetNumberOfHarmonies
-    |> DatabaseConnector.Save song
+    |> consider (DatabaseConnector.Save song)
     |> Logger.Log song

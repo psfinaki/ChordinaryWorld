@@ -16,9 +16,9 @@ let SaveSong (artist, title) harmonies =
     }
     |> AzureConnector.SaveDocument
     
-let Save song result = 
-    match result with 
-    | Success (number,_) -> SaveSong song number
-    | Failure _ -> ()
-
-    result
+let Save song harmonies =
+    try
+        SaveSong song harmonies
+        succeed harmonies 
+    with
+        _ -> Failure UnknownDatabaseError

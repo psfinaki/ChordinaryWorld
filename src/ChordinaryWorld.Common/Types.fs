@@ -7,6 +7,7 @@ type ErrorMessage =
     | ChordsNotFound
     | EmptyInput
     | UnknownFlavours of seq<string>
+    | UnknownDatabaseError
 
     // inspiration: https://stackoverflow.com/a/1259500/3232646
     member x.GetErrorName() = 

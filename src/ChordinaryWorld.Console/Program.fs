@@ -28,6 +28,8 @@ let main argv =
                 printfn "Empty input is not allowed"
             | UnknownFlavours x ->
                 printfn "Unknown flavours in the tab: %A" (Seq.toList x)
+            | UnknownDatabaseError -> 
+                failwith "This must not happen here"
 
         Console.WriteLine()
     0
