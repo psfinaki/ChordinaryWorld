@@ -1,19 +1,7 @@
 ﻿module internal DatabaseConnector
 
-type Song = { 
-    id: string; 
-    artist : string; 
-    title : string; 
-    harmonies: int 
-}
-
 let SaveSong (artist, title) harmonies =
-    { 
-        id = artist + " - " + title;
-        artist = artist; 
-        title = title; 
-        harmonies = harmonies 
-    }
+    Song (artist, title, harmonies)
     |> AzureConnector.SaveDocument
     
 let Save song harmonies =

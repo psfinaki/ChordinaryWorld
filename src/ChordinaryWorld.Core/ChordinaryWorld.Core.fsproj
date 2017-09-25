@@ -64,6 +64,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
     <None Include="config-example.yaml" />
+    <Compile Include="Models.fs" />
     <Compile Include="AzureConnector.fs" />
     <Compile Include="DatabaseConnector.fs" />
     <Compile Include="Logger.fs" />
