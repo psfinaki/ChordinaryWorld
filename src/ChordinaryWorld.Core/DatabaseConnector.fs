@@ -1,4 +1,4 @@
-﻿module DatabaseConnector
+﻿module internal DatabaseConnector
 
 type Song = { 
     id: string; 

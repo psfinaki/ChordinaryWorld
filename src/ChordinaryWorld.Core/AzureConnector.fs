@@ -1,4 +1,4 @@
-﻿module AzureConnector
+﻿module internal AzureConnector
 
 open FSharp.Configuration
 open Microsoft.Azure.Documents.Client
