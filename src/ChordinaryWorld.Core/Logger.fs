@@ -11,13 +11,30 @@ let LogSongError (artist, title) message =
 
 let Log song result =
     match result with
-    | Failure (UnknownFlavours flavours) -> 
-        "Unknown flavours: " + (Seq.toList flavours).ToString()
-        |> LogSongError song
-    | Failure ChordsNotFound ->
-        "Chords not found"
-        |> LogSongError song
-    | _ -> 
-        ()
+    | Success (_, messages) -> 
+        let handleMessage = function
+            | UnknownDatabaseError ->
+                "Something bad happened in database"
+                |> LogSongError song
+            | UnknownFlavours _
+            | ChordsNotFound
+            | EmptyInput ->
+                failwith "This must not happen here"
+
+        Seq.iter handleMessage messages
+    | Failure message ->
+        let handleMessage = function 
+            | UnknownFlavours flavours -> 
+                "Unknown flavours: " + (Seq.toList flavours).ToString()
+                |> LogSongError song
+            | ChordsNotFound ->
+                "Chords not found"
+                |> LogSongError song
+            | EmptyInput ->
+                ()
+            | UnknownDatabaseError ->
+                failwith "This must not happen here"
+
+        handleMessage message
 
     result
