@@ -21,11 +21,11 @@ function formatSuccess(harmonies: number): string {
 function formatFailure(error: string): string {
     switch (error) {
         case "ChordsNotFound":
-            return "Chords to this song cannot be retrieved.";
+            return "Chords to this song were not found.";
         case "EmptyInput":
             return "Empty input is not allowed.";
         case "UnknownFlavours":
-            return "There is a problem with the chords found. Please write developers about this song."
+            return "There is a problem with the chords found. This will be fixed soon."
         default:
             return "There is an internal problem with the service. Please write developers about this song.";
     }
