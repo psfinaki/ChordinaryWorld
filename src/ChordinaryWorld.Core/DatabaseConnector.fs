@@ -9,4 +9,4 @@ let Save song harmonies =
         SaveSong song harmonies
         succeed harmonies 
     with
-        _ -> Failure UnknownDatabaseError
+        _ -> Failure UnknownDatabaseIssue

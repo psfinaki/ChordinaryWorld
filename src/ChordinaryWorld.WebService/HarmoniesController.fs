@@ -23,5 +23,3 @@ type HarmoniesController() =
             | ChordsNotFound ->
                 x.BadRequest(message.GetErrorName())
                 :> IHttpActionResult
-            | UnknownDatabaseError ->
-                failwith "This must not happen here"

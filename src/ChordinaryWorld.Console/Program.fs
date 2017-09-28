@@ -18,8 +18,12 @@ let main argv =
             |> Core.GetNumberOfHarmonies 
 
         match result with
-        | Success (x,_) -> 
+        | Success (x, warnings) -> 
+            let prettifyWarning = function 
+                | UnknownDatabaseIssue -> "Something bad happened in database"
+            
             printfn "Number of harmonies here is %A" x
+            warnings |> Seq.map prettifyWarning |> Seq.iter Console.WriteLine
         | Failure error -> 
             match error with
             | ChordsNotFound -> 
@@ -28,8 +32,6 @@ let main argv =
                 printfn "Empty input is not allowed"
             | UnknownFlavours x ->
                 printfn "Unknown flavours in the tab: %A" (Seq.toList x)
-            | UnknownDatabaseError -> 
-                failwith "This must not happen here"
 
         Console.WriteLine()
     0

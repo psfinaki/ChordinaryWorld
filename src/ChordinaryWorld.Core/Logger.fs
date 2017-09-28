@@ -13,13 +13,9 @@ let Log song result =
     match result with
     | Success (_, messages) -> 
         let handleMessage = function
-            | UnknownDatabaseError ->
+            | UnknownDatabaseIssue ->
                 "Something bad happened in database"
                 |> LogSongError song
-            | UnknownFlavours _
-            | ChordsNotFound
-            | EmptyInput ->
-                failwith "This must not happen here"
 
         Seq.iter handleMessage messages
     | Failure message ->
@@ -32,8 +28,6 @@ let Log song result =
                 |> LogSongError song
             | EmptyInput ->
                 ()
-            | UnknownDatabaseError ->
-                failwith "This must not happen here"
 
         handleMessage message
 
