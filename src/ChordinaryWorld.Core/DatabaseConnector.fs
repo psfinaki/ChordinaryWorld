@@ -1,6 +1,8 @@
 ﻿module internal DatabaseConnector
 
-let SaveSong (artist, title) harmonies =
+let SaveSong song harmonies =
+    let (artist, title) = tupleMap Canonicalizer.Canonicalize song
+    
     Song (artist, title, harmonies)
     |> AzureConnector.SaveDocument
     

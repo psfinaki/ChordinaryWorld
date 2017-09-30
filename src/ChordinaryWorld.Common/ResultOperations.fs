@@ -1,5 +1,5 @@
 ﻿[<AutoOpen>]
-module Operations
+module ResultOperations
 
 let succeed input = Success (input, [])
 
@@ -27,13 +27,6 @@ let consider f input =
         | Failure message -> Success (value, (message :: messages))
     | Failure message -> 
         Failure message
-
-let cartesian xs ys =
-    seq {
-        for x in xs do
-        for y in ys do
-            yield (x, y)
-    }
 
 // for tests
 let ExtractSuccess = function | Success (x,_) -> x | Failure _ -> failwith "Expected Success here"
