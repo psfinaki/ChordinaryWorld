@@ -7,3 +7,6 @@ let GetNumberOfHarmonies song =
     |> bind Engine.GetNumberOfHarmonies
     |> consider (DatabaseConnector.Save song)
     |> Logger.Log song
+
+let GetTop =
+    DatabaseConnector.GetTop

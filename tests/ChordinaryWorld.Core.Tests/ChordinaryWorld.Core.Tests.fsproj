@@ -59,9 +59,10 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
-    <Compile Include="CoreTests.fs" />
+    <Compile Include="GetNumberOfHarmoniesTests.fs" />
     <Compile Include="ValidatorTests.fs" />
     <Compile Include="CanonicalizerTests.fs" />
+    <Compile Include="GetTopTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

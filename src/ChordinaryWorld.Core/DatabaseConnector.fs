@@ -1,14 +1,19 @@
 ﻿module internal DatabaseConnector
 
-let SaveSong song harmonies =
-    let (artist, title) = tupleMap Canonicalizer.Canonicalize song
-    
-    Song (artist, title, harmonies)
-    |> AzureConnector.SaveDocument
-    
 let Save song harmonies =
     try
-        SaveSong song harmonies
+        let (artist, title) = tupleMap Canonicalizer.Canonicalize song
+    
+        Song (artist, title, harmonies)
+        |> AzureConnector.SaveDocument
+
         succeed harmonies 
     with
+        _ -> Failure UnknownDatabaseIssue
+
+let GetTop count =
+    try
+        AzureConnector.GetTop count
+        |> succeed
+    with 
         _ -> Failure UnknownDatabaseIssue
