@@ -3,6 +3,7 @@
 let GetUserInput() = 
     printfn "Select the feature:"
     printfn "1 - Get number of harmonies"
+    printfn "2 - Get top"
 
     let choice = Console.ReadLine()
     printfn ""
@@ -11,6 +12,7 @@ let GetUserInput() =
 
 let TranslateUserInput = function
     | "1" -> Some Features.GetNumberOfHarmonies
+    | "2" -> Some Features.GetTop
     |  _  -> None
 
 [<EntryPoint>]

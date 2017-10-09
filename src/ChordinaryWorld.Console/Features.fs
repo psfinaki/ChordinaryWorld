@@ -36,3 +36,21 @@ let GetNumberOfHarmonies() =
         error 
         |> TranslateError 
         |> Console.WriteLine
+
+let GetTop() =
+    printfn "Enter top count"
+    let input = Console.ReadLine()
+
+    let result = Core.GetTop <| Int32.Parse input
+    match result with
+    | Success (top, warnings) ->
+        printfn "Here is the top:"
+        top |> Seq.iter (printfn "%A")
+
+        warnings 
+        |> Seq.map TranslateWarning 
+        |> Seq.iter Console.WriteLine
+    | Failure error ->
+        error 
+        |> TranslateWarning
+        |> Console.WriteLine
