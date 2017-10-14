@@ -2,13 +2,6 @@
 
 open System
 
-let GetInput() =
-    printfn "Enter the artist"
-    let artist = Console.ReadLine()
-    printfn "Enter the title"
-    let title = Console.ReadLine()
-    (artist, title)
-
 let TranslateWarning = function 
     | UnknownDatabaseIssue -> 
         "Something bad happened in database"
@@ -27,12 +20,9 @@ let TranslateError = function
         | UnknownFlavours x ->
             "Unknown flavours in the tab: " + (Seq.toList x).ToString()
 
-let GetNumberOfHarmonies() =
-    let result = Core.GetNumberOfHarmonies <| GetInput()
-
-    match result with
-    | Success (x, warnings) -> 
-        printfn "Number of harmonies here is %A" x
+let PrintResult print = function
+    | Success (value, warnings) -> 
+        print value
 
         warnings 
         |> Seq.map TranslateWarning 
@@ -40,23 +30,34 @@ let GetNumberOfHarmonies() =
 
     | Failure error -> 
         error 
-        |> TranslateError 
+        |> TranslateError
         |> Console.WriteLine
 
-let GetTop() =
-    printfn "Enter top count"
-    let input = Console.ReadLine()
+let PlayFeature feature inputProvider outputFormatter =
+    inputProvider()
+    |> feature
+    |> PrintResult outputFormatter
 
-    let result = Core.GetTop <| Int32.Parse input
-    match result with
-    | Success (top, warnings) ->
+let GetNumberOfHarmonies() =
+    let getSong() =
+        printfn "Enter the artist"
+        let artist = Console.ReadLine()
+        printfn "Enter the title"
+        let title = Console.ReadLine()
+        (artist, title)
+
+    let printHarmonies =
+        printfn "Number of harmonies here is %A" 
+
+    PlayFeature Core.GetNumberOfHarmonies getSong printHarmonies
+
+let GetTop() =
+    let getCount() = 
+        printfn "Enter top count"
+        int <| Console.ReadLine()
+
+    let printTop top = 
         printfn "Here is the top:"
         top |> Seq.iter (printfn "%A")
 
-        warnings 
-        |> Seq.map TranslateWarning 
-        |> Seq.iter Console.WriteLine
-    | Failure error ->
-        error 
-        |> TranslateError
-        |> Console.WriteLine
+    PlayFeature Core.GetTop getCount printTop
