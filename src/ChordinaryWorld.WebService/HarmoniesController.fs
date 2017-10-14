@@ -16,10 +16,16 @@ type HarmoniesController() =
         | Success (harmonies, _) -> 
             x.Ok harmonies 
             :> IHttpActionResult
-        | Failure message -> 
-            match message with
-            | EmptyInput
-            | UnknownFlavours _
-            | ChordsNotFound ->
-                x.BadRequest(message.GetErrorName())
+        | Failure error -> 
+            match error with
+            | InternalError _ ->
+                x.InternalServerError()
                 :> IHttpActionResult
+            | ExternalError error ->
+                match error with
+                | EmptyInput ->
+                    x.BadRequest()
+                    :> IHttpActionResult
+                | ChordsNotFound ->
+                    x.NotFound()
+                    :> IHttpActionResult

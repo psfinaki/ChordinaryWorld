@@ -18,15 +18,15 @@ function formatSuccess(harmonies: number): string {
     return `Number of harmonies here is ${harmonies}.`;
 }
 
-function formatFailure(error: string): string {
-    switch (error) {
-        case "ChordsNotFound":
+function formatFailure(status: number): string {
+    switch (status) {
+        case 404:
             return "Chords to this song were not found.";
-        case "EmptyInput":
+        case 400:
             return "Empty input is not allowed.";
-        case "UnknownFlavours":
+        case 500:
             return "There is a problem with the chords found. This will be fixed soon."
         default:
-            return "There is an internal problem with the service. Please write developers about this song.";
+            return "Something went wrong. Sorry for bad diagnostics!";
     }
 }

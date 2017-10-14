@@ -14,10 +14,7 @@ function search(): void {
             $('#result').text(message);
         })
         .fail((response: JQueryXHR) => {
-            const message = response.status == 400
-                ? formatFailure(response.responseJSON.message)
-                : "Something went wrong. Sorry for bad diagnostics!";
-
+            const message = formatFailure(response.status);
             $('#result').text(message);
         })
         .always(() => {

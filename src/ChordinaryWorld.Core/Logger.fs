@@ -19,15 +19,22 @@ let Log song result =
 
         Seq.iter handleMessage messages
     | Failure message ->
-        let handleMessage = function 
-            | UnknownFlavours flavours -> 
-                "Unknown flavours: " + (Seq.toList flavours).ToString()
-                |> LogSongError song
-            | ChordsNotFound ->
-                "Chords not found"
-                |> LogSongError song
-            | EmptyInput ->
-                ()
+        let handleMessage = function
+            | InternalError x -> 
+                match x with
+                | UnknownFlavours flavours -> 
+                    "Unknown flavours: " + (Seq.toList flavours).ToString()
+                    |> LogSongError song
+                | UnknownDatabaseError ->
+                    "Something very bad happened in database"
+                    |> LogSongError song
+            | ExternalError x ->
+                match x with
+                | ChordsNotFound ->
+                    "Chords not found"
+                    |> LogSongError song
+                | EmptyInput ->
+                    ()
 
         handleMessage message
 

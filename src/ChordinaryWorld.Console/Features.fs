@@ -14,12 +14,18 @@ let TranslateWarning = function
         "Something bad happened in database"
 
 let TranslateError = function
-    | ChordsNotFound -> 
-        "Chords are not found"
-    | EmptyInput -> 
-        "Empty input is not allowed"
-    | UnknownFlavours x -> 
-        "Unknown flavours in the tab: " + (Seq.toList x).ToString()
+    | ExternalError error ->
+        match error with
+        | ChordsNotFound -> 
+            "Chords are not found"
+        | EmptyInput -> 
+            "Empty input is not allowed"
+    | InternalError error ->
+        match error with
+        | UnknownDatabaseError ->
+            "Something bad happened in database"
+        | UnknownFlavours x ->
+            "Unknown flavours in the tab: " + (Seq.toList x).ToString()
 
 let GetNumberOfHarmonies() =
     let result = Core.GetNumberOfHarmonies <| GetInput()
@@ -52,5 +58,5 @@ let GetTop() =
         |> Seq.iter Console.WriteLine
     | Failure error ->
         error 
-        |> TranslateWarning
+        |> TranslateError
         |> Console.WriteLine

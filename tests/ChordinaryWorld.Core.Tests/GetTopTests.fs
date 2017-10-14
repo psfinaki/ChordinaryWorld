@@ -20,7 +20,7 @@ let GetsTop() =
 [<InlineData(-42)>]
 [<InlineData(1000)>]
 let HandlesBadCount input =
-    let expected = UnknownDatabaseIssue
+    let expected = InternalError UnknownDatabaseError
     
     let actual = GetTop input |> ExtractFailure
 
