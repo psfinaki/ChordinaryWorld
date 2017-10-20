@@ -118,12 +118,13 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="Web.config" />
+    <Content Include="packages.config" />
     <Content Include="Global.asax" />
     <Compile Include="Global.asax.fs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Content Include="packages.config" />
     <Compile Include="HarmoniesController.fs" />
+    <Compile Include="TopController.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Data">

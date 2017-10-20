@@ -8,7 +8,7 @@ open System.Web.Routing
 
 type HttpRoute = {
     controller : string
-    name : RouteParameter }
+    id : RouteParameter }
 
 type Global() =
     inherit System.Web.HttpApplication() 
@@ -18,8 +18,8 @@ type Global() =
         config.MapHttpAttributeRoutes()
         config.Routes.MapHttpRoute(
             "DefaultApi", // Route name
-            "api/{controller}/{name}", // URL with parameters
-            { controller = "{controller}"; name = RouteParameter.Optional } // Parameter defaults
+            "api/{controller}/{id}", // URL with parameters
+            { controller = "{controller}"; id = RouteParameter.Optional } // Parameter defaults
         ) |> ignore
 
         // Configure serialization
