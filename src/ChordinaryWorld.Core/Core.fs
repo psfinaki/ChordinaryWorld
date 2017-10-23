@@ -2,13 +2,13 @@
 
 let GetNumberOfHarmonies song =
     song
-    |> liftE Validator.ValidateSong
-    |> bindE ChordsProvider.GetChords
-    |> bindI Engine.GetNumberOfHarmonies
-    |> considerI (DatabaseConnector.Save song) (InternalError UnknownDatabaseError, UnknownDatabaseIssue)
+    |> Validator.ValidateSong
+    |> bind ChordsProvider.GetChords
+    |> bind Engine.GetNumberOfHarmonies
+    |> consider (DatabaseConnector.Save song) (UnknownDatabaseErrorHarmonies, UnknownDatabaseIssue)
     |> Logger.Log song
 
 let GetTop count =
     count
-    |> liftE Validator.ValidateCount
-    |> bindI DatabaseConnector.GetTop 
+    |> Validator.ValidateCount
+    |> bind DatabaseConnector.GetTop 

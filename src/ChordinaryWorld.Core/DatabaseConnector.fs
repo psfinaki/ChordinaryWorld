@@ -9,11 +9,11 @@ let Save song harmonies =
 
         succeed harmonies 
     with
-        _ -> Failure UnknownDatabaseError
+        _ -> Failure UnknownDatabaseErrorHarmonies
 
 let GetTop count =
     try
         AzureConnector.GetTop count
         |> succeed
     with 
-        _ -> Failure UnknownDatabaseError
+        _ -> Failure UnknownDatabaseErrorTop

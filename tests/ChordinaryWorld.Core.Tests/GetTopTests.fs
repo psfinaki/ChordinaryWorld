@@ -16,7 +16,7 @@ let GetsTop() =
 
 [<Fact>]
 let HandlesNegativeCount() =
-    let expected = ExternalError NegativeCount
+    let expected = NegativeCount
 
     let actual = -42 |> GetTop |> ExtractFailure
 
@@ -24,7 +24,7 @@ let HandlesNegativeCount() =
 
 [<Fact>]
 let HandlesBadCount() =
-    let expected = InternalError UnknownDatabaseError
+    let expected = UnknownDatabaseErrorTop
     
     let actual = 1000 |> GetTop |> ExtractFailure
 

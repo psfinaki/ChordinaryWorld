@@ -18,19 +18,13 @@ type HarmoniesController() =
             :> IHttpActionResult
         | Failure error -> 
             match error with
-            | InternalError error ->
-                match error with
-                | UnknownFlavours _
-                | UnknownDatabaseError ->
-                    x.InternalServerError()
-                    :> IHttpActionResult
-            | ExternalError error ->
-                match error with
-                | EmptyInput ->
-                    x.BadRequest()
-                    :> IHttpActionResult
-                | ChordsNotFound ->
-                    x.NotFound()
-                    :> IHttpActionResult
-                | NegativeCount ->
-                    failwith "this must not happen"
+            | EmptyInput ->
+                x.BadRequest()
+                :> IHttpActionResult
+            | ChordsNotFound ->
+                x.NotFound()
+                :> IHttpActionResult
+            | UnknownFlavours _
+            | UnknownDatabaseErrorHarmonies ->
+                x.InternalServerError()
+                :> IHttpActionResult

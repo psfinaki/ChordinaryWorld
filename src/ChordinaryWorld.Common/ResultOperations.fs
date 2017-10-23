@@ -28,23 +28,6 @@ let consider f (errorFrom, warningTo) = function
     | Failure error -> 
         Failure error
 
-let liftInternalError = function
-    | Success (value, messages) -> Success (value, messages)
-    | Failure error             -> Failure (InternalError error)
-
-let liftExternalError = function
-    | Success (value, messages) -> Success (value, messages)
-    | Failure error             -> Failure (ExternalError error)
-
-let liftI f = f >> liftInternalError
-let liftE f = f >> liftExternalError
-
-let bindI f = bind <| liftI f
-let bindE f = bind <| liftE f
-
-let considerI f = consider <| liftI f
-let considerE f = consider <| liftE f
-
 // for tests
 let ExtractSuccess = function | Success (x,_) -> x | Failure _ -> failwith "Expected Success here"
 let ExtractFailure = function | Failure  x    -> x | Success _ -> failwith "Expected Failure here"

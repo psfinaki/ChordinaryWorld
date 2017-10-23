@@ -14,16 +14,9 @@ type TopController() =
             :> IHttpActionResult
         | Failure error ->
             match error with
-            | InternalError error ->
-                match error with
-                | UnknownFlavours _
-                | UnknownDatabaseError ->
-                    x.InternalServerError()
-                    :> IHttpActionResult
-            | ExternalError error ->
-                match error with
-                | EmptyInput
-                | ChordsNotFound 
-                | NegativeCount ->
-                    x.BadRequest()
-                    :> IHttpActionResult
+            | UnknownDatabaseErrorTop ->
+                x.InternalServerError()
+                :> IHttpActionResult
+            | NegativeCount ->
+                x.BadRequest()
+                :> IHttpActionResult

@@ -45,7 +45,7 @@ let GetsNumberOfHarmonies artist title numberOfHarmonies =
 [<Fact>]
 let HandlesNotFoundSong() =
     let song = ("Nothing But Thieves", "Ban All The Music")
-    let expected = ExternalError ChordsNotFound
+    let expected = ChordsNotFound
     
     let actual = song |> GetNumberOfHarmonies |> ExtractFailure
 
@@ -54,7 +54,7 @@ let HandlesNotFoundSong() =
 [<Fact>]
 let HandlesEmptyInput() =
     let song = ("Tender", "")
-    let expected = ExternalError EmptyInput
+    let expected = EmptyInput
     
     let actual = song |> GetNumberOfHarmonies |> ExtractFailure
 

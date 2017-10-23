@@ -11,8 +11,8 @@ let GetUserInput() =
     choice
 
 let TranslateUserInput = function
-    | "1" -> Some Features.GetNumberOfHarmonies
-    | "2" -> Some Features.GetTop
+    | "1" -> Some GetNumberOfHarmonies.Play
+    | "2" -> Some GetTop.Play
     |  _  -> None
 
 [<EntryPoint>]
