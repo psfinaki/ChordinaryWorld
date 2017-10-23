@@ -40,4 +40,21 @@ describe('helper', () => {
 
         expect(result).toBe(expected);
     });
+
+    it("should format top line", () => {
+        const line: [string, string, number] = ["bright eyes", "lua", 6]
+        const expected: string = "bright eyes - lua (6)";
+
+        const result = formatTopLine(line);
+
+        expect(result).toBe(expected);
+    });
+
+    it("should call correct server", () => {
+        const expected: string = "chordinaryworld.azurewebsites.net";
+
+        const result = chooseAuthority();
+
+        expect(result).toBe(expected);
+    });
 });

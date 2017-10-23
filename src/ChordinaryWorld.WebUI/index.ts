@@ -1,13 +1,13 @@
 ﻿/// <reference path="helper.ts" />
 
 function search(): void {
-    $('#result').toggle(false);
-    $('#progress').toggle(true);
+    $('#result').addClass("invisible");
+    $('#progress').removeClass("invisible");
 
     const artist = $('#artist').val();
     const title = $('#title').val();
 
-    const url = makeUrl(artist, title);
+    const url = makeUrlHarmonies(artist, title);
     $.get(url)
         .done((response: number) => {
             const message = formatSuccess(response);
@@ -18,8 +18,21 @@ function search(): void {
             $('#result').text(message);
         })
         .always(() => {
-            $('#progress').toggle(false);
-            $('#result').toggle(true);
+            $('#progress').addClass("invisible");
+            $('#result').removeClass("invisible");
+        });
+}
+
+function fillTop() {
+    const url = makeUrlTop();
+    $.get(url)
+        .done((response: [string, string, number][]) => {
+            $('#top').removeClass("invisible");
+            $.each(response, (key, item: any) => {
+                // for some reason, it does not work directly
+                const itemDTO: [string, string, number] = [item.item1, item.item2, item.item3];
+                $('<li>', { text: formatTopLine(itemDTO) }).appendTo($('#topList'));
+            });
         });
 }
 
@@ -39,4 +52,6 @@ $(() => {
     $('#title').keyup(searchIfEnter);
 
     $('#artist').focus();
+
+    fillTop();
 });

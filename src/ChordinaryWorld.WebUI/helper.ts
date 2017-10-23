@@ -1,20 +1,32 @@
-﻿function makeQuery(artist: string, title: string): string {
+﻿function chooseAuthority() {
+    //const authority = "localhost:48213";
+    //const authority = "chordinaryworld-test.azurewebsites.net";
+    const authority = "chordinaryworld.azurewebsites.net";
+
+    return authority;
+}
+
+function makeQuery(artist: string, title: string) {
     const sanitizedArtist = encodeURIComponent(artist);
     const sanitizedTitle = encodeURIComponent(title);
 
     return `artist=${sanitizedArtist}&title=${sanitizedTitle}`;
 }
 
-function makeUrl(artist: string, title: string): string {
-    //const authority = "localhost:48213";
-    //const authority = "chordinaryworld-test.azurewebsites.net";
-    const authority = "chordinaryworld.azurewebsites.net";
+function makeUrlHarmonies(artist: string, title: string) {
+    const authority = chooseAuthority();
     const query = makeQuery(artist, title);
 
     return `http://${authority}/api/harmonies?${query}`;
 }
 
-function formatSuccess(harmonies: number): string {
+function makeUrlTop() {
+    const authority = chooseAuthority();
+
+    return `http://${authority}/api/top?count=6`;
+}
+
+function formatSuccess(harmonies: number) {
     return `Number of harmonies here is ${harmonies}.`;
 }
 
@@ -29,4 +41,8 @@ function formatFailure(status: number): string {
         default:
             return "Something went wrong. Sorry for bad diagnostics!";
     }
+}
+
+function formatTopLine(item: [string, string, number]) {
+    return `${item[0]} - ${item[1]} (${item[2]})`;
 }

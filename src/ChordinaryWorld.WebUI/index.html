@@ -30,10 +30,18 @@
                                 <button class="btn btn-default" type="button" id="search">Go!</button>
                             </span>
                         </div>
-                        <label id="result" hidden />
+                        <label id="result" class="invisible">
+                            _ <!--something should be there, otherwise hidden class does not work as expected-->
+                        </label>
                     </div>
-                    <div>
-                        <img id="progress" src="Resources/clef.gif" hidden />
+                    <div id="progress" class="invisible">
+                        <img src="Resources/clef.gif" />
+                    </div>
+                    <div id="top" class="padded invisible">
+                        <h4 class="centered">Current top:</h4>
+                        <div>
+                            <ol id="topList" />
+                        </div>
                     </div>
                 </div>
             </div>

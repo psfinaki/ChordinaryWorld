@@ -17,6 +17,11 @@ button {
     width: 50px;
 }
 
+ol {
+    columns: 2;
+    column-gap: 225px;
+}
+
 .invisible-span {
     width: 0px;
 }
