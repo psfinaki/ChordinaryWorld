@@ -10,4 +10,5 @@ let GetNumberOfHarmonies song =
 
 let GetTop count =
     count
-    |> liftI DatabaseConnector.GetTop 
+    |> liftE Validator.ValidateCount
+    |> bindI DatabaseConnector.GetTop 

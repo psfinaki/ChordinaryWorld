@@ -32,3 +32,5 @@ type HarmoniesController() =
                 | ChordsNotFound ->
                     x.NotFound()
                     :> IHttpActionResult
+                | NegativeCount ->
+                    failwith "this must not happen"

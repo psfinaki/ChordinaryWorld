@@ -13,6 +13,8 @@ let TranslateError = function
             "Chords are not found"
         | EmptyInput -> 
             "Empty input is not allowed"
+        | NegativeCount ->
+            "Negative count is not allowed"
     | InternalError error ->
         match error with
         | UnknownDatabaseError ->

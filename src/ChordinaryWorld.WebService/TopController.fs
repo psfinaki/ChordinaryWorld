@@ -23,6 +23,7 @@ type TopController() =
             | ExternalError error ->
                 match error with
                 | EmptyInput
-                | ChordsNotFound ->
+                | ChordsNotFound 
+                | NegativeCount ->
                     x.BadRequest()
                     :> IHttpActionResult

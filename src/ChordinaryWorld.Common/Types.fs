@@ -8,6 +8,7 @@ type InternalError =
 type ExternalError =
     | ChordsNotFound
     | EmptyInput
+    | NegativeCount
 
 type Warning =
     | UnknownDatabaseIssue

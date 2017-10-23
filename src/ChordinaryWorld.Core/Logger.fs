@@ -35,6 +35,8 @@ let Log song result =
                     |> LogSongError song
                 | EmptyInput ->
                     ()
+                | NegativeCount -> 
+                    failwith "this should not happen"
 
         handleMessage message
 

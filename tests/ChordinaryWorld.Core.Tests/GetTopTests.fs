@@ -14,13 +14,19 @@ let GetsTop() =
 
     Assert.Equal<'T list>(expected, actual)
 
-[<Theory>]
-[<InlineData(-42)>]
-[<InlineData(1000)>]
-let HandlesBadCount input =
+[<Fact>]
+let HandlesNegativeCount() =
+    let expected = ExternalError NegativeCount
+
+    let actual = -42 |> GetTop |> ExtractFailure
+
+    Assert.Equal(expected, actual)
+
+[<Fact>]
+let HandlesBadCount() =
     let expected = InternalError UnknownDatabaseError
     
-    let actual = GetTop input |> ExtractFailure
+    let actual = 1000 |> GetTop |> ExtractFailure
 
     Assert.Equal(expected, actual)
 
