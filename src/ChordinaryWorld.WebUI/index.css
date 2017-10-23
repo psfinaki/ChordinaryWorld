@@ -26,9 +26,13 @@ ol {
     width: 0px;
 }
 
-.padded {
+.padded50 {
     /* by button width */
     padding-left: 50px;
+}
+
+.padded75 {
+    padding-left: 75px;
 }
 
 .centered {
