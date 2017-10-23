@@ -1,13 +1,15 @@
 ﻿module internal Canonicalizer
 
+open System.Globalization
 open System.Text.RegularExpressions
 
 let replace (x: string) (y: string) s = Regex.Replace(s, x, y)
 
-let Preformat(s: string) =
-    s
-     .Trim()
-     .ToLower()
+let trim (s: string) = s.Trim()
+
+let titlize = CultureInfo("en-US", false).TextInfo.ToTitleCase
+
+let Preformat = trim >> titlize
 
 let HandlePunctuation =
        replace "/"  " "

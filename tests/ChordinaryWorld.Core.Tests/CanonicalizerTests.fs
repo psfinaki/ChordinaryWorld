@@ -10,7 +10,7 @@ open Canonicalizer
 [<InlineData("proactive evolution ")>]
 [<InlineData(" proactive evolution  ")>]
 let Preformats input =
-    let expected = "proactive evolution"
+    let expected = "Proactive Evolution"
 
     let actual = Preformat input
 
@@ -46,7 +46,7 @@ let HandlesPunctuationToEmpty() =
 [<Fact>]
 let Canonicalizes() =
     let s = "  are you   mine?"
-    let expected = "are you mine"
+    let expected = "Are You Mine"
 
     let actual = Canonicalize s
 

@@ -7,12 +7,10 @@ open Core
 let GetsTop() =
     let expected =
         [
-            "queen", "bohemian rhapsody", 24
-            "the beatles", "here there and everywhere", 12
-            "the beatles", "here comes the sun", 10
+            "Queen", "Bohemian Rhapsody", 24
         ]
 
-    let actual = GetTop 3 |> ExtractSuccess
+    let actual = GetTop 1 |> ExtractSuccess
 
     Assert.Equal<'T list>(expected, actual)
 
