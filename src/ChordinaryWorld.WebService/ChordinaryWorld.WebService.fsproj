@@ -32,6 +32,8 @@
     <ConsolePause>false</ConsolePause>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
+    <Optimize>false</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

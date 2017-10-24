@@ -25,6 +25,7 @@
     <DocumentationFile>bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
