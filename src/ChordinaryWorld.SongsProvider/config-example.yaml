@@ -1,0 +1,8 @@
+﻿# Create new file config.yaml and copy this there.
+# File should be automatically git-ignored.
+# Then you can fill it with appropriate values.
+
+ApplicationName: example
+ApiKey: example
+SharedSecret: example
+RegisteredTo: example

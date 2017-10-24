@@ -265,3 +265,4 @@ __pycache__/
 *.js
 !src/ChordinaryWorld.WebUI/Scripts/*.js
 /src/ChordinaryWorld.Core/config.yaml
+/src/ChordinaryWorld.SongsProvider/config.yaml
