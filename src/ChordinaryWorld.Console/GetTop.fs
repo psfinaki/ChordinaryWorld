@@ -11,8 +11,10 @@ let PrintTop top =
     top |> Seq.iter (printfn "%A")
 
 let TranslateError = function
-    | NegativeCount           -> 
+    | NegativeCount -> 
         "Negative count is not allowed"
+    | TooBigCount ->
+        "Rating count is too big"
     | UnknownDatabaseErrorTop -> 
         "Something bad happened in the database"
 

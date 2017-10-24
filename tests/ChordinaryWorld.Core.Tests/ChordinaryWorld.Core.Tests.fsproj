@@ -64,6 +64,7 @@
     <Compile Include="ValidatorTests.fs" />
     <Compile Include="CanonicalizerTests.fs" />
     <Compile Include="GetTopTests.fs" />
+    <Compile Include="AzureConnectorTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Data">

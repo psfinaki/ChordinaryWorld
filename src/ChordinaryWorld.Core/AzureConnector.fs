@@ -1,5 +1,6 @@
 ﻿module internal AzureConnector
 
+open System
 open FSharp.Configuration
 open Microsoft.Azure.Documents.Client
 open Microsoft.Azure.Documents
@@ -36,20 +37,25 @@ let SaveDocument document =
     client.UpsertDocumentAsync(documentsLink, document).Result |> ignore
 
 let GetTop count =
-    let config = Config()
-    use client = new DocumentClient(config.Uri, config.Key) 
+    try
+        let config = Config()
+        use client = new DocumentClient(config.Uri, config.Key) 
     
-    let database = Database()
-    database.Id <- config.DatabaseId
-    let collectionsLink = client.GetCollectionsLink database
+        let database = Database()
+        database.Id <- config.DatabaseId
+        let collectionsLink = client.GetCollectionsLink database
 
-    let collection = DocumentCollection()
-    collection.Id <- config.CollectionId
-    let documentsLink = client.GetDocumentsLink collectionsLink collection
+        let collection = DocumentCollection()
+        collection.Id <- config.CollectionId
+        let documentsLink = client.GetDocumentsLink collectionsLink collection
         
-    documentsLink
-    |> client.CreateDocumentQuery<Song>
-    |> Seq.sortByDescending (fun s -> s.harmonies)
-    |> Seq.take count
-    |> Seq.map (fun s -> s.artist, s.title, s.harmonies)
-    |> Seq.toList
+        documentsLink
+        |> client.CreateDocumentQuery<Song>
+        |> Seq.sortByDescending (fun s -> s.harmonies)
+        |> Seq.take count
+        |> Seq.map (fun s -> s.artist, s.title, s.harmonies)
+        |> Seq.toList
+        |> succeed
+    with
+        | :? ArgumentException         -> Failure NegativeCount
+        | :? InvalidOperationException -> Failure TooBigCount

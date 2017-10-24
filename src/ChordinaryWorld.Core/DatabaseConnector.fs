@@ -14,6 +14,5 @@ let Save song harmonies =
 let GetTop count =
     try
         AzureConnector.GetTop count
-        |> succeed
     with 
         _ -> Failure UnknownDatabaseErrorTop

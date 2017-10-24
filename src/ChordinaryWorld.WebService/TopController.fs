@@ -17,6 +17,7 @@ type TopController() =
             | UnknownDatabaseErrorTop ->
                 x.InternalServerError()
                 :> IHttpActionResult
-            | NegativeCount ->
+            | NegativeCount 
+            | TooBigCount ->
                 x.BadRequest()
                 :> IHttpActionResult

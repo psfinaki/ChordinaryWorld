@@ -12,6 +12,7 @@ type HarmoniesError =
 
 type TopError =
     | NegativeCount
+    | TooBigCount
     | UnknownDatabaseErrorTop
 
 type Result<'TSuccess,'TWarning,'TError> =

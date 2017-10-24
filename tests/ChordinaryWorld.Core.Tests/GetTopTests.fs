@@ -10,7 +10,7 @@ let GetsTop() =
             "Queen", "Bohemian Rhapsody", 24
         ]
 
-    let actual = GetTop 1 |> ExtractSuccess
+    let actual = 1 |> GetTop |> ExtractSuccess
 
     Assert.Equal<'T list>(expected, actual)
 
@@ -23,8 +23,8 @@ let HandlesNegativeCount() =
     Assert.Equal(expected, actual)
 
 [<Fact>]
-let HandlesBadCount() =
-    let expected = UnknownDatabaseErrorTop
+let HandlesTooBigCount() =
+    let expected = TooBigCount
     
     let actual = 1000 |> GetTop |> ExtractFailure
 
