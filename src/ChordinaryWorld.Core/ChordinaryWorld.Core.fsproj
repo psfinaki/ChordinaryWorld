@@ -76,6 +76,11 @@
     <Compile Include="Core.fs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ChordinaryWorld.SongsProvider\ChordinaryWorld.SongsProvider.fsproj">
+      <Name>ChordinaryWorld.SongsProvider</Name>
+      <Project>{6bbdbab2-0d38-490f-b251-e292cc592d0d}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <Reference Include="ChordinaryWorld.ChordsProvider">
       <HintPath>ChordinaryWorld.ChordsProvider.dll</HintPath>
     </Reference>

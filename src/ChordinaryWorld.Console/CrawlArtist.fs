@@ -8,8 +8,8 @@ let GetArtist() =
 
 let Play() =
     Features.PlayFeature
-        (Crawler.CrawlArtist >> succeed)
+        (Core.GetArtistTop >> succeed)
         GetArtist
-        (fun () -> ())
+        (fun (_) -> ())
         (fun () -> "")
         (fun () -> "")

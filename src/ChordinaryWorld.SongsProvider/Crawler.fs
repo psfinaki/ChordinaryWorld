@@ -20,9 +20,3 @@ let GetTopTracks count artist =
     |> Top.Load
     |> fun top -> top.Toptracks.Track
     |> Seq.map (fun track -> track.Name)
-
-let CrawlArtist artist = 
-    artist
-    |> GetTopTracks 25
-    |> cartesian [artist]
-    |> Seq.iter (Core.GetNumberOfHarmonies >> ignore)
