@@ -13,6 +13,8 @@ let PrintTop top =
 let TranslateError = function
     | BadArtist ->
         "Invalid artist"
+    | NoTabsFound ->
+        "Looks like nobody writes chords for this artist"
 
 let Play() =
     Features.PlayFeature

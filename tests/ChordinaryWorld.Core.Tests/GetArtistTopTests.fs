@@ -26,3 +26,23 @@ let HandlesBadArtist() =
 
     Assert.Equal(expected, actual)
 
+[<Fact>]
+let HandlesArtistWithLittleTabs() =
+    let artist = "justice"
+    let expected = 
+        [
+            ("DVNO", 5)
+        ]
+
+    let actual = GetArtistTop artist |> ExtractSuccess
+
+    Assert.Equal(expected, actual)
+
+[<Fact>]
+let HandlesArtistWithNoTabs() =
+    let artist = "Ololo"
+    let expected = NoTabsFound
+
+    let actual = GetArtistTop artist |> ExtractFailure
+
+    Assert.Equal(expected, actual)
