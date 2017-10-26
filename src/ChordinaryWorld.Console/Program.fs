@@ -4,7 +4,7 @@ let GetUserInput() =
     printfn "Select the feature:"
     printfn "1 - Get number of harmonies"
     printfn "2 - Get top"
-    printfn "3 - Crawl artist"
+    printfn "3 - Get artist top"
 
     let choice = Console.ReadLine()
     printfn ""
