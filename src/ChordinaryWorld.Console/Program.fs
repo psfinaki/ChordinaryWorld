@@ -14,7 +14,7 @@ let GetUserInput() =
 let TranslateUserInput = function
     | "1" -> Some GetNumberOfHarmonies.Play
     | "2" -> Some GetTop.Play
-    | "3" -> Some CrawlArtist.Play
+    | "3" -> Some GetArtistTop.Play
     |  _  -> None
 
 [<EntryPoint>]

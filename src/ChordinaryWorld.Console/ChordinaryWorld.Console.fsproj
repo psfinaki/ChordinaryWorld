@@ -62,9 +62,9 @@
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
     <Compile Include="Features.fs" />
-    <Compile Include="CrawlArtist.fs" />
     <Compile Include="GetNumberOfHarmonies.fs" />
     <Compile Include="GetTop.fs" />
+    <Compile Include="GetArtistTop.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
   </ItemGroup>
