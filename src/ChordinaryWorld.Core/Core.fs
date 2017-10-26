@@ -17,13 +17,15 @@ let GetArtistTop artist =
     artist
     |> Validator.ValidateArtist
     |> bind (Crawler.GetTopTracks 5)
-    |> map (Seq.allPairs [artist])
-    |> map (Seq.map (fun  song -> (song, GetNumberOfHarmonies song)))
-    |> map (Seq.choose (fun (song, result) -> 
+    |> map (fun tracks -> 
+        Seq.allPairs [artist] tracks
+        |> Seq.map (fun song -> (song, GetNumberOfHarmonies song))
+        |> Seq.choose (fun (song, result) -> 
             match result with
             | Success (harmonies,_) -> Some (snd song, harmonies)
             | Failure _ -> None
-    ))
-    |> map (Seq.sortByDescending snd)
-    |> map Seq.head
+        )
+        |> Seq.sortByDescending snd
+        |> Seq.head
+    )
 
