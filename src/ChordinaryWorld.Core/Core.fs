@@ -15,7 +15,8 @@ let GetTop count =
 
 let GetArtistTop artist = 
     artist
-    |> Crawler.GetTopTracks 5
+    |> Validator.ValidateArtist
+    |> bind (Crawler.GetTopTracks 5)
     |> map (Seq.allPairs [artist])
     |> map (Seq.map (fun  song -> (song, GetNumberOfHarmonies song)))
     |> map (Seq.choose (fun (song, result) -> 

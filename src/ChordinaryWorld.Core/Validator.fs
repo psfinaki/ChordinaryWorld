@@ -19,3 +19,8 @@ let ValidateCount count =
     if count < 0
     then Failure NegativeCount
     else succeed count
+
+let ValidateArtist artist =
+    if String.IsNullOrWhiteSpace artist
+    then Failure BadArtist
+    else succeed artist 

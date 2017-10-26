@@ -61,3 +61,23 @@ let ValidatesNormalCount input =
     let actual = input |> ValidateCount |> ExtractSuccess
 
     Assert.Equal(expected, actual)
+
+[<Fact>]
+let ValidatesNormalArtist() =
+    let artist = "Pink Floyd"
+    let expected = artist
+
+    let actual = artist |> ValidateArtist |> ExtractSuccess
+
+    Assert.Equal(expected, actual)
+
+[<Theory>]
+[<InlineData "">]
+[<InlineData " ">]
+[<InlineData "     ">]
+let ValidatesBadArtist artist =
+    let expected = BadArtist
+
+    let actual = artist |> ValidateArtist |> ExtractFailure
+
+    Assert.Equal(expected, actual)
