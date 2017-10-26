@@ -71,6 +71,7 @@
     <Compile Include="Canonicalizer.fs" />
     <Compile Include="AzureConnector.fs" />
     <Compile Include="DatabaseConnector.fs" />
+    <Compile Include="ArtistTopMaster.fs" />
     <Compile Include="Logger.fs" />
     <Compile Include="Validator.fs" />
     <Compile Include="Core.fs" />

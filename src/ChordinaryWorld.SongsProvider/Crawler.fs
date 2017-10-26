@@ -21,7 +21,7 @@ let GetTopTracks count artist =
         url
         |> Top.Load
         |> fun top -> top.Toptracks.Track
-        |> Seq.map (fun track -> track.Name)
+        |> Seq.map (fun track -> (track.Artist.Name, track.Name))
         |> succeed
     with
         _ -> 
