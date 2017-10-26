@@ -59,6 +59,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="packages.config" />
     <None Include="config-example.yaml" />
+    <None Include="errorExample.json" />
     <None Include="topTracksExample.json" />
     <Compile Include="Crawler.fs" />
   </ItemGroup>
@@ -80,6 +81,13 @@
       <HintPath>..\..\packages\System.ValueTuple.4.3.1\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChordinaryWorld.Common\ChordinaryWorld.Common.fsproj">
+      <Name>ChordinaryWorld.Common</Name>
+      <Project>{e85cd67b-8e2b-4ee7-9841-e32277f3a321}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

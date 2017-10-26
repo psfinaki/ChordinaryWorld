@@ -15,6 +15,9 @@ type TopError =
     | TooBigCount
     | UnknownDatabaseErrorTop
 
+type ArtistTopError =
+    | BadArtist
+
 type Result<'TSuccess,'TWarning,'TError> =
     | Success of 'TSuccess * 'TWarning list
     | Failure of 'TError

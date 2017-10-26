@@ -16,12 +16,13 @@ let GetTop count =
 let GetArtistTop artist = 
     artist
     |> Crawler.GetTopTracks 5
-    |> Seq.allPairs [artist]
-    |> Seq.map    (fun  song -> (song, GetNumberOfHarmonies song))
-    |> Seq.choose (fun (song, result) -> 
-        match result with
-        | Success (harmonies,_) -> Some (snd song, harmonies)
-        | Failure _ -> None
-    )
-    |> Seq.sortByDescending snd
-    |> Seq.head
+    |> map (Seq.allPairs [artist])
+    |> map (Seq.map (fun  song -> (song, GetNumberOfHarmonies song)))
+    |> map (Seq.choose (fun (song, result) -> 
+            match result with
+            | Success (harmonies,_) -> Some (snd song, harmonies)
+            | Failure _ -> None
+    ))
+    |> map (Seq.sortByDescending snd)
+    |> map Seq.head
+
