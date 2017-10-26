@@ -6,7 +6,9 @@ let GetArtist() =
     printfn "Enter artist"
     Console.ReadLine()
 
-let PrintTop = printfn "%A"
+let PrintTop top = 
+    printfn "Here is the top:"
+    top |> Seq.iter (printfn "%A")
 
 let TranslateError = function
     | BadArtist ->

@@ -6,7 +6,12 @@ open Core
 [<Fact>]
 let GetsArtistTop() =
     let artist = "muse"
-    let expected = ("Knights of Cydonia", 13)
+    let expected = 
+        [
+            ("Knights of Cydonia", 13);
+            ("Time Is Running Out", 8);
+            ("Starlight", 7)
+        ]
 
     let actual = GetArtistTop artist |> ExtractSuccess
 

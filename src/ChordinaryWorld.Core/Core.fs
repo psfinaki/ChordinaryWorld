@@ -26,6 +26,6 @@ let GetArtistTop artist =
             | Failure _ -> None
         )
         |> Seq.sortByDescending snd
-        |> Seq.head
+        |> Seq.take 3
     )
 
