@@ -9,6 +9,7 @@ type HarmoniesError =
     | EmptyInput
     | UnknownFlavours of seq<string>
     | UnknownDatabaseErrorHarmonies
+    | ChordsNotAvailable
 
 type TopError =
     | NegativeCount

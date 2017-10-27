@@ -21,6 +21,8 @@ let TranslateError = function
         "Something bad happened in database"
     | UnknownFlavours x ->
         "Unknown flavours in the tab: " + (Seq.toList x).ToString()
+    | ChordsNotAvailable ->
+        "Cannot obtain chords for the song"
 
 let TranslateWarning = function 
     | UnknownDatabaseIssue -> 

@@ -24,6 +24,7 @@ type HarmoniesController() =
             | ChordsNotFound ->
                 x.NotFound()
                 :> IHttpActionResult
+            | ChordsNotAvailable
             | UnknownFlavours _
             | UnknownDatabaseErrorHarmonies ->
                 x.InternalServerError()

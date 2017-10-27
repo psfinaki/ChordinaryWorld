@@ -31,6 +31,9 @@ let Log song result =
             | UnknownDatabaseErrorHarmonies ->
                 "Something very bad happened in database"
                 |> LogSongError song
+            | ChordsNotAvailable ->
+                "Problems with UG"
+                |> LogSongError song
 
         handleMessage message
 
