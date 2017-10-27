@@ -1,18 +1,17 @@
 ﻿module internal Analyzer
 
-open System.Text.RegularExpressions
+open FSharp.Text.RegexProvider
+
+type ChordRegex = Regex<"(?<Tonic>[ABCDEFG]{1}[#b]?)(?<Flavour>.*)">
 
 let AnalyzeChord chord =
-    let regex = "([ABCDEFG]{1}[#b]?)(.*)"
-    let m = Regex.Match(chord, regex)
+    let m = ChordRegex().TypedMatch chord
 
     match m.Success with
-    | false -> 
-        invalidArg "chord" "chord must start with letter form A-G diapason"
     | true ->
-        let tonic = m.Groups.[1].Value
-        let flavour = m.Groups.[2].Value
-        (tonic, flavour)
+        (m.Tonic.Value, m.Flavour.Value)
+    | false -> 
+        invalidArg "chord" "chord must start with letter from A-G diapason"
 
 let GetTonic chord = fst (AnalyzeChord chord)
 
