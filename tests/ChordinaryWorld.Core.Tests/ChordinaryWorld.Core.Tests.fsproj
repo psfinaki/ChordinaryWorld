@@ -67,6 +67,7 @@
     <Compile Include="GetTopTests.fs" />
     <Compile Include="AzureConnectorTests.fs" />
     <Compile Include="GetArtistTopTests.fs" />
+    <Compile Include="ArtistTopMasterTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Data">

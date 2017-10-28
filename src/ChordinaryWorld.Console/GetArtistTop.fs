@@ -15,6 +15,10 @@ let TranslateError = function
         "Invalid artist"
     | NoTabsFound ->
         "Looks like nobody writes chords for this artist"
+    | TabsUnuavailable ->
+        "Cannot reach chord provider"
+    | BadTabs ->
+        "All found tabs have problems"
 
 let Play() =
     Features.PlayFeature

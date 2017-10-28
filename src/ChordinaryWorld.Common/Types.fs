@@ -19,6 +19,8 @@ type TopError =
 type ArtistTopError =
     | BadArtist
     | NoTabsFound
+    | TabsUnuavailable
+    | BadTabs
 
 type Result<'TSuccess,'TWarning,'TError> =
     | Success of 'TSuccess * 'TWarning list

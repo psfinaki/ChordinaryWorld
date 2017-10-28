@@ -3,6 +3,9 @@ module ResultOperations
 
 let succeed input = Success (input, [])
 
+let optSuccess = function | Success (s,_) -> Some s | Failure _ -> None
+let optFailure = function | Failure  f    -> Some f | Success _ -> None
+
 let appendMessages messages = function
     | Success (value, existingMessages) -> Success (value, existingMessages @ messages) 
     | Failure error -> Failure error 

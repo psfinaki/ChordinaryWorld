@@ -12,8 +12,8 @@ let DeflavourChord chord =
 
 let Deflavour chords =
     let results  = Seq.map DeflavourChord chords
-    let knowns   = results |> Seq.choose (function | Success (s,_) -> Some s | Failure _ -> None)
-    let unknowns = results |> Seq.choose (function | Failure  f    -> Some f | Success _ -> None)
+    let knowns   = results |> Seq.choose optSuccess
+    let unknowns = results |> Seq.choose optFailure
 
     match Seq.isEmpty unknowns with
     | true ->
