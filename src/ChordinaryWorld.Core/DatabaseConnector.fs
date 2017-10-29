@@ -2,7 +2,7 @@
 
 let Save song harmonies =
     try
-        let (artist, title) = tupleMap Canonicalizer.Canonicalize song
+        let (artist, title) = Tuple.map Canonicalizer.Canonicalize song
     
         Song (artist, title, harmonies)
         |> AzureConnector.SaveDocument

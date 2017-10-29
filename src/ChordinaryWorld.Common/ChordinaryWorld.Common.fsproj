@@ -56,10 +56,11 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="Auxiliary.fs" />
-    <Compile Include="Types.fs" />
-    <Compile Include="ResultOperations.fs" />
     <Content Include="packages.config" />
+    <Compile Include="Types.fs" />
+    <Compile Include="Tuple.fs" />
+    <Compile Include="Seq.fs" />
+    <Compile Include="ResultOperations.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

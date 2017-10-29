@@ -17,6 +17,6 @@ let GetArtistTop artist =
     artist
     |> Validator.ValidateArtist
     |> bind (Crawler.GetTopTracks 5)
-    |> map (mapZip GetNumberOfHarmonies)
+    |> map (Seq.mapZip GetNumberOfHarmonies)
     |> bind ArtistTopMaster.CreateTop
 

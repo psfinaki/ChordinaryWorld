@@ -10,8 +10,8 @@ let GetTopSongsMax3 songs =
     |> Seq.map (fun (song, harmonies) -> snd song, harmonies)
 
 let CreateTop results = 
-    let values = results |> choose2 optSuccess
-    let errors = results |> choose2 optFailure |> Seq.map snd
+    let values = results |> Seq.choose2 optSuccess
+    let errors = results |> Seq.choose2 optFailure |> Seq.map snd
 
     let chordsAvailable = not <| Seq.contains ChordsNotAvailable errors
     match chordsAvailable with

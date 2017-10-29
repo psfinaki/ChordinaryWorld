@@ -1,7 +1,4 @@
-﻿[<AutoOpen>]
-module Auxiliary
-
-let tupleMap f (a, b) = (f a, f b)
+﻿module Seq
 
 let mapZip f sequence = 
     sequence
