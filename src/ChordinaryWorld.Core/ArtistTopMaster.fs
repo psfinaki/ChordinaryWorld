@@ -16,7 +16,7 @@ let CreateTop results =
     let chordsAvailable = not <| Seq.contains ChordsNotAvailable errors
     match chordsAvailable with
     | false -> 
-        Failure TabsUnuavailable
+        Failure TabsUnavailable
     | true -> 
         match Seq.length values with
         | 0 ->

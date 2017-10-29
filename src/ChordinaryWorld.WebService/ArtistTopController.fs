@@ -22,7 +22,7 @@ type ArtistTopController() =
             | NoTabsFound ->
                 x.NotFound()
                 :> IHttpActionResult
-            | TabsUnuavailable
+            | TabsUnavailable
             | BadTabs ->
                 x.InternalServerError()
                 :> IHttpActionResult
