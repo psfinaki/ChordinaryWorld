@@ -127,6 +127,7 @@
     </Compile>
     <Compile Include="HarmoniesController.fs" />
     <Compile Include="TopController.fs" />
+    <Compile Include="ArtistTopController.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Data">
