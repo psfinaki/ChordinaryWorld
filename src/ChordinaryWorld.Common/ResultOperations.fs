@@ -18,6 +18,10 @@ let bind f = function
     | Success (value, messages) -> f value |> appendMessages messages
     | Failure error -> Failure error
 
+let tee f x =
+    f x
+    x
+
 let consider f (errorFrom, warningTo) = function
     | Success (value, warnings) -> 
         let result = f value

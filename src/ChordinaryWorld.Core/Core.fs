@@ -6,12 +6,13 @@ let GetNumberOfHarmonies song =
     |> bind ChordsProvider.GetChords
     |> bind Engine.GetNumberOfHarmonies
     |> consider (DatabaseConnector.Save song) (UnknownDatabaseErrorHarmonies, UnknownDatabaseIssue)
-    |> Logger.Log song
+    |> tee (Logger.LogHarmonies song)
 
 let GetTop count =
     count
     |> Validator.ValidateCount
     |> bind DatabaseConnector.GetTop 
+    |> tee (Logger.LogCount count)
 
 let GetArtistTop artist = 
     artist

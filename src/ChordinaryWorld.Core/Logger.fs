@@ -5,36 +5,57 @@ open System.Diagnostics
 
 let LogError = Trace.TraceError
 
-let LogSongError (artist, title) message =
-    String.Format("{0} - {1} - {2}", artist, title, message) 
-    |> LogError 
+let LogHarmonies song result =
+    let log (artist, title) message =
+        String.Format("{0} - {1} - {2}", artist, title, message) 
+        |> LogError 
 
-let Log song result =
     match result with
     | Success (_, messages) -> 
-        let handleMessage = function
+        let handle = function
             | UnknownDatabaseIssue ->
                 "Something bad happened in database"
-                |> LogSongError song
+                |> log song
 
-        Seq.iter handleMessage messages
-    | Failure message ->
-        let handleMessage = function
+        Seq.iter handle messages
+    | Failure error ->
+        let handle = function
             | ChordsNotFound ->
                 "Chords not found"
-                |> LogSongError song
+                |> log song
             | EmptyInput ->
                 ()
             | UnknownFlavours flavours -> 
                 "Unknown flavours: " + (Seq.toList flavours).ToString()
-                |> LogSongError song
+                |> log song
             | UnknownDatabaseErrorHarmonies ->
                 "Something very bad happened in database"
-                |> LogSongError song
+                |> log song
             | ChordsNotAvailable ->
-                "Problems with UG"
-                |> LogSongError song
+                "Problems with chords provider"
+                |> log song
 
-        handleMessage message
+        handle error
 
-    result
+let LogCount count result =
+    let log count message =
+        String.Format("{0} - {1}", count, message) 
+        |> LogError 
+
+    match result with
+    | Success (_,_) -> 
+        ()
+    | Failure error ->
+        let handle = function
+            | NegativeCount -> 
+                "Negative count"
+                |> log count
+            | TooBigCount -> 
+                "Too big count"
+                |> log count
+            | UnknownDatabaseErrorTop -> 
+                "Something bad happened in the database"
+                |> log count
+
+        handle error
+
