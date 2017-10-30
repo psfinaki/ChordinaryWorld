@@ -20,4 +20,5 @@ let GetArtistTop artist =
     |> bind (Crawler.GetTopTracks 5)
     |> map (Seq.mapZip GetNumberOfHarmonies)
     |> bind ArtistTopMaster.CreateTop
+    |> tee (Logger.LogArtist artist)
 

@@ -59,3 +59,27 @@ let LogCount count result =
 
         handle error
 
+let LogArtist artist result =
+    let log artist message =
+        String.Format("{0} - {1}", artist, message) 
+        |> LogError 
+
+    match result with
+    | Success (_,_) -> 
+        ()
+    | Failure error ->
+        let handle = function
+            | BadArtist ->
+                "Invalid artist"
+                |> log artist
+            | NoTabsFound ->
+                "No chords found"
+                |> log artist
+            | TabsUnavailable ->
+                "Cannot reach chord provider"
+                |> log artist
+            | BadTabs ->
+                "All found tabs have problems"
+                |> log artist
+
+        handle error
