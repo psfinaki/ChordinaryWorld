@@ -18,7 +18,6 @@ let private flavours =
           "maj9",  "";
           "7#9",   "";
           "11",    "";
-          "7sus4", "";
           "M7",    "";
           "add11", "";
           "13",    "";
@@ -46,6 +45,7 @@ let private flavours =
 
           "sus",      "sus4";
           "sus4",     "sus4";
+          "7sus4",    "sus4";
           "sus2",     "sus2";
           "sus2sus4", "sus2sus4";
           "5",        "5";
