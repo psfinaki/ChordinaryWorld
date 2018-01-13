@@ -6,24 +6,20 @@
     return authority;
 }
 
-function makeQuery(artist: string, title: string) {
+function makeQueryHarmonies(artist: string, title: string) {
     const sanitizedArtist = encodeURIComponent(artist);
     const sanitizedTitle = encodeURIComponent(title);
 
     return `artist=${sanitizedArtist}&title=${sanitizedTitle}`;
 }
 
-function makeUrlHarmonies(artist: string, title: string) {
-    const authority = chooseAuthority();
-    const query = makeQuery(artist, title);
-
-    return `http://${authority}/api/harmonies?${query}`;
+function makeQueryTop(count: number) {
+    return `count=${count}`;
 }
 
-function makeUrlTop() {
-    const authority = chooseAuthority();
-
-    return `http://${authority}/api/top?count=6`;
+function makeQueryArtistTop(artist: string) {
+    const sanitizedArtist = encodeURIComponent(artist);
+    return `artist=${sanitizedArtist}`;
 }
 
 function formatSuccess(harmonies: number) {
@@ -41,8 +37,4 @@ function formatFailure(status: number): string {
         default:
             return "Something went wrong. Sorry for bad diagnostics!";
     }
-}
-
-function formatTopLine(item: [string, string, number]) {
-    return `${item[0]} - ${item[1]} (${item[2]})`;
 }
