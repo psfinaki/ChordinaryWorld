@@ -1,0 +1,31 @@
+﻿h1 {
+    font-size: 105px;
+    color: green;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+label {
+    color: green;
+    font-size: x-large;
+}
+
+button {
+    width: 50px;
+}
+
+.padded50 {
+    /* by button width */
+    padding-left: 50px;
+}
+
+.padded75 {
+    padding-left: 75px;
+}
+
+.centered {
+    text-align: center;
+}

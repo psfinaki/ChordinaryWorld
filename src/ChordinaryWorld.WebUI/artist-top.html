@@ -7,16 +7,15 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="app.css" type="text/css" />
     <link rel="stylesheet" href="common.css" type="text/css" />
-    <link rel="stylesheet" href="index.css" type="text/css" />
     <script src="Scripts/jquery-3.1.1.js"></script>
     <script src="common.js"></script>
     <script src="helper.js"></script>
-    <script src="index.js"></script>
+    <script src="artist-top.js"></script>
 </head>
 <body>
     <div id="content">
         <h1 class="centered padded50">Chordinary World</h1>
-        <h4 class="centered">Get number of harmonies in a song</h4>
+        <h4 class="centered">Get artist's harmonically richest songs</h4>
         <hr />
         <br />
         <br />
@@ -26,8 +25,6 @@
                     <div class="padded50">
                         <div class="input-group">
                             <input id="artist" type="text" class="form-control centered" placeholder="artist" />
-                            <span class="input-group-btn invisible-span"></span>
-                            <input id="title" type="text" class="form-control centered" placeholder="title" />
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button" id="search">Go!</button>
                             </span>
@@ -40,7 +37,6 @@
                         <img src="Resources/clef.gif" />
                     </div>
                     <div id="top" class="invisible">
-                        <h4 class="centered">Current top:</h4>
                         <div>
                             <ol id="topList" class="padded75" />
                         </div>

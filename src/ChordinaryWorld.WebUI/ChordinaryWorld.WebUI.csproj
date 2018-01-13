@@ -62,7 +62,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="about.css" />
+    <Content Include="common.css" />
     <Content Include="favicon.ico" />
+    <Content Include="artist-top.html" />
     <Content Include="index.css" />
     <Content Include="Resources\clef.gif" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -101,6 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="about.ts" />
+    <TypeScriptCompile Include="artist-top.ts" />
+    <TypeScriptCompile Include="common.ts" />
     <TypeScriptCompile Include="index.ts" />
     <TypeScriptCompile Include="helper.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
