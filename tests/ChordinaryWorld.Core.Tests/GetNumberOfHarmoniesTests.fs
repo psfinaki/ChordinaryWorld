@@ -32,7 +32,7 @@ open Core
 [<InlineData("Oasis", "Live Forever", 7)>]
 [<InlineData("Oasis", "She's Electric", 8)>]
 [<InlineData("Love", "Andmoreagain", 9)>]
-[<InlineData("Oasis", "The Masterplan", 7)>]
+[<InlineData("Oasis", "The Masterplan", 6)>]
 [<InlineData("Oasis", "Stop Crying Your Heart Out", 7)>]
 [<InlineData("Queen", "We Are The Champions", 14)>]
 [<InlineData("Oasis", "Sad Song", 7)>]
