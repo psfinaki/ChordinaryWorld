@@ -47,6 +47,7 @@ let private flavours =
           "sus4",     "sus4";
           "7sus4",    "sus4";
           "sus2",     "sus2";
+          "7sus2",    "sus2";
           "sus2sus4", "sus2sus4";
           "5",        "5";
                          ]
